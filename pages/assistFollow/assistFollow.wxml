@@ -1,0 +1,105 @@
+<view class="container">
+  <scroll-view class="clues"
+               scroll-y
+               enhanced
+               refresher-enabled="{{ true }}"
+               refresher-threshold="{{80}}"
+               bindrefresherrefresh="refresh"
+               refresher-triggered="{{ refreshFlag }}"
+               show-scrollbar="{{false}}"
+               paging-enabled="{{true}}"
+               fast-deceleration="{{true}}"
+               bindscrolltolower="loadMore">
+    <view wx:for="{{leads}}" bind:tap="goClueDetail" data-item="{{ item }}" class="clues_item" wx:key="leadsId">
+      <view class="item_top">
+        <view class="it_left">
+          <view class="itl_title_wrapper">
+            <view class="itlt_title">{{item.custName}}</view>
+            <view wx:if="{{item.overDueDays}}" class="itlt_bage">
+              <!-- {{indedx % 2 ? 'O级-订单线索' : '逾期2天'}}  {{index%2 ? 'itlt_bage_color': ''}}-->
+              {{'逾期' + item.overDueDays + '天'}}
+            </view>
+          </view>
+          <view class="itl_phoone">{{item.mobile}}</view>
+        </view>
+        <view class="it_right">
+             <image mode="aspectFill" catch:tap="gotoClueFollow" data-item="{{ item }}" src="../../assets/images/page/icon_document.png" style="width: 48rpx; height: 48rpx" />
+
+          <image class="ml_40" catch:tap="phoneCall" data-phone="{{ item.mobile }}" mode="aspectFill" src="../../assets/images/page/icon_phone.png" style="width: 48rpx; height: 48rpx" />
+          <image class="ml_44" mode="aspectFill" src="../../assets/images/page/icon_chat.png" style="width: 48rpx; height: 48rpx" />
+        </view>
+      </view>
+      <view class="item_line">
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 4rpx" />
+      </view>
+      <view class="item_bottom">
+        <view class="ib_left">
+          <view class="ibl_text">计划跟进时间：{{item.planFollowTime || ''}}</view>
+          <view class="ibl_text mt_10">线索来源：{{item.sourceChannelName || ''}}</view>
+        </view>
+        <view class="ib_right" data-leadsid="{{item.leadsId}}" catchtap="openLeadsHis">
+          <view class="ibr_text">历史记录</view>
+          <view class="ibr_icon">
+            <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height:  26rpx" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
+  <van-popup show="{{ isShowHis }}" closeable position="bottom" custom-style="height: 80%" bind:close="closeLeadsHis">
+    <scroll-view class="leads_his" scroll-y="{{true}}">
+      <view class="follow_wrapper">
+        <view wx:for="{{followHisLs}}" wx:key="index" class="step_item">
+          <view class="si_top">
+            <view class="sit_left">
+              <view class="sitl_bage">{{item.newLevelName}}</view>
+              <view class="sltl_stage">{{item.followTypeName}} </view>
+              <view class="sitl_bage red" wx:if="{{item.isCooperate==1}}">协助</view>
+            </view>
+            <view class="sit_right">
+              <view class="sitr_name">{{item.salesConsultant}}</view>
+              <view class="sitr_date">{{item.actualTime}}</view>
+            </view>
+          </view>
+          <view class="si_middle">
+            <view class="sim_statusbtn" wx:if="{{item.contactWayName}}">{{item.contactWayName}}</view>
+            <view class="sim_statusbtn" wx:if="{{item.arrivalWayName}}">{{item.arrivalWayName}}</view>
+            <view class="sim_statusbtn simsb_primary" wx:for="{{item.followDo}}" wx:key="index">{{item}}</view>
+          </view>
+          <view wx:if="{{item.followType == 102004}}" class="si_bottom">
+            <block wx:for="{{item.tTemporaryDefeat.reasonRemark}}" wx:key="index" wx:for-item="it">
+              <text>{{ it.reasonName }}:{{ it.reasonDescription }}</text>
+            </block>
+          </view>
+          <view wx:else class="si_bottom">
+            #{{item.activityName}}# {{item.resultFeedback}}
+          </view>
+          <view class="rotate_spot"></view>
+          <view wx:if="{{index != followCecord.length - 1}}" class="botted_line"></view>
+        </view>
+<!--        <view wx:for="{{followCecord}}" wx:key="id" class="step_item">-->
+<!--          <view class="si_top">-->
+<!--            <view class="sit_left">-->
+<!--              <view class="sitl_bage">L级</view>-->
+<!--              <view class="sltl_stage">建档</view>-->
+<!--            </view>-->
+<!--            <view class="sit_right">-->
+<!--              <view class="sitr_name">{{item.salesConsultant}}</view>-->
+<!--              <view class="sitr_date">{{item.actualTime}}</view>-->
+<!--            </view>-->
+<!--          </view>-->
+<!--          <view class="si_middle">-->
+<!--            <view class="sim_statusbtn">主动到店</view>-->
+<!--            <view class="sim_statusbtn simsb_primary">询车询价</view>-->
+<!--          </view>-->
+<!--          <view class="si_bottom">-->
+<!--            #{{item.activityName}}# {{item.resultFeedback}}-->
+<!--          </view>-->
+<!--          <view class="rotate_spot"></view>-->
+<!--          <view wx:if="{{index != followCecord.length - 1}}" class="botted_line"></view>-->
+<!--        </view>-->
+      </view>
+    </scroll-view>
+  </van-popup>
+</view>

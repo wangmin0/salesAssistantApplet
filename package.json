@@ -1,0 +1,11 @@
+{
+  "name": "h-work-wechat-assistant",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@git.code.tencent.com:iov-dfm/h-work-wechat-assistant.git",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.5.0"
+  }
+}

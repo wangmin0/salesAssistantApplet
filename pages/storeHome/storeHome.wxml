@@ -1,0 +1,112 @@
+<scroll-view scroll-y="{{true}}" class="container">
+  <view class="title">
+    <image mode="aspectFill" src="../../assets/images/page/home_title_bg.png" style="width: 100%; height: 330rpx" />
+    <view class="title_main">
+      <view class="tm_top">
+        <image mode="aspectFill" src="../../assets/images/page/icon_tx.png" style="width: 148rpx; height: 148rpx" />
+        <view class="tmt_text">
+          <view class="tmtt_top">张三丰</view>
+          <view class="tmtt_bottom">今日待办（{{waitAllot+allocate+approvedResult}}）</view>
+        </view>
+      </view>
+      <view class="tmt_daiban">
+        <view class="item">
+          <navigator url="/pages/waitAllot/waitAllot">
+            <view class="tmtdbi_bigtitle">{{waitAllot}}</view>
+            <view class="tmtdbi_smalltitle">待分配</view>
+          </navigator>
+        </view>
+        <view class="line"></view>
+        <view class="item">
+          <navigator url="/pages/allocate/allocate">
+            <view class="tmtdbi_bigtitle">{{allocate}}</view>
+            <view class="tmtdbi_smalltitle">可调配</view>
+          </navigator>
+        </view>
+        <view class="line"></view>
+        <view class="item">
+          <navigator url="/pages/approval/approval">
+            <view class="tmtdbi_bigtitle">{{approvedResult}}</view>
+            <view class="tmtdbi_smalltitle">战败审批</view>
+          </navigator>
+        </view>
+      </view>
+      <view class="modules">
+        <view class="m_item">
+          <navigator url="/pages/lineDetails/lineDetails">
+            <image mode="aspectFill" src="../../assets/images/page/xiansuo.png" style="width: 92rpx; height: 92rpx" />
+            <view class="mi_text">线索详情</view>
+          </navigator>
+        </view>
+        <view class="m_item">
+          <image mode="aspectFill" src="../../assets/images/page/huodong.png" style="width: 92rpx; height: 92rpx" />
+          <view class="mi_text">活动管理</view>
+        </view>
+        <view class="m_item">
+          <image mode="aspectFill" src="../../assets/images/page/qianke.png" style="width: 92rpx; height: 92rpx" />
+          <view class="mi_text">潜客管理</view>
+        </view>
+        <view class="m_item">
+          <image mode="aspectFill" src="../../assets/images/page/xianjianxiansuo.png" style="width: 92rpx; height: 92rpx" />
+          <view class="mi_text">新建线索</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tipinfo">
+    <view class="ti_left">
+      <view class="til_item">
+        <view class="primaryBtn">咨询</view>
+        <view class="til_title ml_20">商务部:</view>
+        <view class="titl_info ml_5">鼓励各地出台促新能源车消费政策</view>
+      </view>
+      <view class="til_item mt_20">
+        <view class="primaryBtn">咨询</view>
+        <view class="til_title ml_20">商务部:</view>
+        <view class="titl_info ml_5">鼓励各地出台促新能源车消费政策</view>
+      </view>
+      <view class="til_item mt_20">
+        <view class="warningBtn">通知</view>
+        <view class="til_title ml_20">商务部:</view>
+        <view class="titl_info ml_5">鼓励各地出台促新能源车消费政策</view>
+      </view>
+    </view>
+    <view class="ti_right">
+      <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx" />
+    </view>
+  </view>
+  <view class="hot">
+    <view class="h_title">
+      <view class="ht_left">
+        <view class="htl_line"></view>
+        <view class="htl_text">热门活动</view>
+      </view>
+      <view class="ht_right">
+        <view class="htr_text">更多</view>
+        <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx" />
+      </view>
+    </view>
+    <view class="activeItem" wx:for="{{hotList}}" wx:key="index">
+      <view class="avtiveItem_main">
+        <view class="left_main">
+          <image mode="aspectFill" src="{{hotList[index].thumbnail}}" style="width: 180rpx; height: 140rpx" />
+          <!-- <image mode="aspectFill" src="../../assets/images/page/storehomelist_icon.png" style="width: 180rpx; height: 140rpx" /> -->
+          <view class="content">
+            <view class="activeTitle">{{hotList[index].activityName}}</view>
+            <view class="expiryData">{{hotList[index].endTime}}</view>
+          </view>
+        </view>
+        <view class="right_main">
+          <!-- <button class='sharebtn' bindtap="toDetail" id="shareBtn" data-name="pageShare" open-type="share" hover-class="other-button-hover">
+            分享</button> -->
+          <image mode="aspectFill" data-name="{{hotList[index].activityCode}}" bindtap="share" src="../../assets/images/page/icon_share.png" style="width: 44rpx; height: 44rpx;" />
+          
+          <!-- <image mode="aspectFill" bindtap="share" src="../../assets/images/page/icon_share.png" style="width: 44rpx; height: 44rpx;" /> -->
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 4rpx" />
+      </view>
+    </view>
+  </view>
+</scroll-view>

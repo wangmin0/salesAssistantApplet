@@ -1,0 +1,9 @@
+@charset "utf-8";
+.flex {
+  display: flex;
+}
+.single-line {
+  text-overflow: ellipsis; /*文字以省略号的方式隐藏*/
+  white-space: nowrap; /*禁止文字内容折行*/
+  overflow: hidden; /*超出部分溢出隐藏*/
+}

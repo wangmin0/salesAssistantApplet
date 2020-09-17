@@ -1,0 +1,233 @@
+.container {
+  background-color: #f6f6f6;
+}
+
+.container .title {
+  position: relative;
+  background-color: #fff;
+  height: 532rpx;
+}
+
+.container .title .title_main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.container .title .title_main .tm_top {
+  display: flex;
+  align-items: center;
+  margin-left: 46rpx;
+  margin-top: 10rpx;
+}
+
+.container .title .title_main .tmt_text {
+  margin-left: 16rpx;
+}
+
+.container .title .title_main .tmt_text .tmtt_top {
+  font-size: 32rpx;
+  font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+  font-weight: 600;
+  color: white;
+  line-height: 40rpx;
+}
+
+.container .title .title_main .tmt_text .tmtt_bottom {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Light, DFPKingGothicGB;
+  font-weight: 300;
+  color: white;
+  line-height: 40rpx;
+  margin-top: 8rpx;
+}
+
+.container .title .title_main .tmt_daiban {
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+}
+
+.container .title .title_main .tmt_daiban .item {
+  flex: 1;
+  text-align: center;
+}
+
+.container .title .title_main .tmt_daiban .item .tmtdbi_bigtitle {
+  font-size: 48rpx;
+  font-family: Avenir-Heavy, Avenir;
+  font-weight: 800;
+  color: white;
+  line-height: 48rpx;
+}
+
+.container .title .title_main .tmt_daiban .item .tmtdbi_smalltitle {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: white;
+  line-height: 32rpx;
+  margin-top: 18rpx;
+}
+
+.container .title .title_main .tmt_daiban .line {
+  width: 2rpx;
+  height: 40rpx;
+  background-color: #fff;
+}
+
+.container .title .title_main .modules {
+  height: 184rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70rpx;
+}
+
+.container .title .title_main .modules .m_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .title .title_main .modules .m_item .mi_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #121212;
+  line-height: 32rpx;
+  margin-top: 10rpx;
+}
+
+.container .tipinfo {
+  height: 208rpx;
+  width: 100%;
+  margin: 20rpx 0;
+  display: flex;
+  background-color: #fff;
+  padding: 30rpx 28rpx;
+}
+
+.container .tipinfo .ti_left {
+  flex: 1;
+}
+
+.container .tipinfo .ti_left .til_item {
+  display: flex;
+  align-items: center;
+}
+
+.container .tipinfo .ti_left .til_item .til_title {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+  font-weight: 500;
+  color: #212121;
+  line-height: 36rpx;
+}
+
+.container .tipinfo .ti_left .til_item .titl_info {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+  font-weight: 500;
+  color: #212121;
+  line-height: 36rpx;
+}
+
+.container .tipinfo .ti_right {
+  width: 14rpx;
+  display: flex;
+  align-items: center;
+}
+
+.container .hot {
+  background-color: #fff;
+}
+
+.container .hot .h_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 29rpx 40rpx;
+}
+
+.container .hot .h_title .ht_left {
+  display: flex;
+  align-items: center;
+}
+
+.container .hot .h_title .ht_left .htl_line {
+  width: 8rpx;
+  height: 36rpx;
+  background: #3173cd;
+}
+
+.container .hot .h_title .ht_left .htl_text {
+  font-size: 36rpx;
+  font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+  font-weight: 600;
+  color: #212121;
+  line-height: 44rpx;
+  margin-left: 10rpx;
+}
+
+.container .hot .h_title .ht_right {
+  display: flex;
+  align-items: center;
+}
+
+.container .hot .h_title .ht_right .htr_text {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.container .hot .activeItem {
+  margin-left: 30rpx;
+  padding-bottom: 34rpx;
+}
+
+.container .hot .activeItem .avtiveItem_main {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 38rpx;
+}
+
+.container .hot .activeItem .avtiveItem_main .left_main {
+  display: flex;
+}
+
+.container .hot .activeItem .avtiveItem_main .left_main .content {
+  margin-left: 20rpx;
+}
+
+.container .hot .activeItem .avtiveItem_main .left_main .content .activeTitle {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+  font-weight: 500;
+  color: #212121;
+  line-height: 40rpx;
+}
+
+.container .hot .activeItem .avtiveItem_main .left_main .content .expiryData {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+  margin-top: 8rpx;
+}
+
+.container .hot .activeItem .avtiveItem_main .right_main {
+  margin-left: 52rpx;
+  display: flex;
+  align-items: center;
+}
+
+.container .hot .activeItem .bottomline {
+  margin-top: 28rpx;
+}

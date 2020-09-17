@@ -1,0 +1,444 @@
+<scroll-view class="container" scroll-y="{{true}}">
+  <view class="baseinfo">基本信息</view>
+  <view class="main">
+    <view class="infoItem">
+      <view class="i_left">
+        <view class="start">*</view>
+        <view class="txt">姓名</view>
+      </view>
+      <view class="i_right">
+        <view class="input_wrapper">
+          <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="custName" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view class="start">*</view>
+        <view class="txt">手机号</view>
+      </view>
+      <view class="i_right">
+        <view class="input_wrapper">
+          <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="mobile" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">线索来源</view>
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{leadsChannelLabel? 'selectedTxt_select': ''}}">
+            <picker bindchange="onChangeLeadResource" range-key="showName" range="{{leadsChannelList}}">
+              <view class="picker">{{leadsChannelLabel ? leadsChannelLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">线索级别</view>
+        <image mode="aspectFill" src="../../assets/images/page/icon_question.png" style="width: 30rpx; height: 30rpx; margin-left: 10rpx" />
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{leadsLevelLabel? 'selectedTxt_select': ''}}">
+            <picker bindchange="onChangeLeadLevel" range-key="levelName" range="{{leadsLevelList}}">
+              <view class="picker">{{leadsLevelLabel ? leadsLevelLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">性别</view>
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{sexLabel? 'selectedTxt_select':''}}">
+            <picker bindchange="onChangeSex" range-key="showName" range="{{sexList}}">
+              <view class="picker">{{sexLabel ? sexLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">年龄</view>
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{ageLabel? 'selectedTxt_select': ''}}">
+            <picker bindchange="onChangeAge" range-key="showName" range="{{ageList}}">
+              <view class="picker">{{ageLabel ? ageLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">行业</view>
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{sindustryLabel? 'selectedTxt_select': ''}}">
+            <picker bindchange="onChangeSindustry" range-key="showName" range="{{sindustryList}}">
+              <view class="picker">{{sindustryLabel ? sindustryLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view class="start">*</view>
+        <view class="txt">职业</view>
+      </view>
+      <view class="i_right">
+        <view class="input_wrapper">
+          <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="vocation" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">收入情况</view>
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{incomeLabel?  'selectedTxt_select': ''}}">
+            <picker bindchange="onChangeIncome" range-key="showName" range="{{incomeList}}">
+              <view class="picker">{{incomeLabel ? incomeLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{true}}" class="start">*</view>
+        <view class="txt">城市</view>
+      </view>
+      <view class="i_right">
+        <view class="selected_wrapper">
+          <view class="selectedTxt {{true? '' : 'selectedTxt_select'}}">
+            <picker mode="multiSelector" bindchange="onChangeArea" bindcolumnchange="onChangeAreaColumn" range-key="areaName" range="{{areaAll}}">
+              <view class="picker">{{cityLabel ? cityLabel :'请选择'}}</view>
+            </picker>
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{false}}" class="start">*</view>
+        <view class="txt">家庭地址</view>
+      </view>
+      <view class="i_right">
+        <view class="input_wrapper">
+          <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="familyAddress" />
+        </view>
+      </view>
+    </view>
+    <view class="bottomline">
+      <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+    </view>
+    <view class="infoItem">
+      <view class="i_left">
+        <view wx:if="{{false}}" class="start">*</view>
+        <view class="txt">家庭情况</view>
+      </view>
+      <view class="i_right">
+        <view class="input_wrapper">
+          <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="familySituation" />
+        </view>
+      </view>
+    </view>
+    <view class="hide_item" bindtap="onTransferDropdown" data-name="vehicleStatus">
+      <view class="h_left">现有车辆</view>
+      <view class="h_righe">
+        <view class="hr_txt">{{vehicleStatus? '收起' : '展开'}}</view>
+        <view class="hr_img">
+          <image wx:if="{{vehicleStatus}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_top.png" style="width: 26rpx; height: 14rpx" />
+          <image wx:else mode="aspectFill" src="../../assets/images/page/icon_arrow_bottom.png" style="width: 26rpx; height: 14rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="{{['defaultbg', vehicleStatus ? '':'hide']}}">
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">品牌</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="brand" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">数量</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="vehicleNum" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">品牌偏好</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="brandLike" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">用途</view>
+        </view>
+        <view class="i_right">
+          <view class="selected_wrapper">
+            <view class="selectedTxt {{purposeLabel? 'selectedTxt_select' : ''}}">
+              <picker bindchange="onChangePurpose" range-key="showName" range="{{purposeList}}">
+                <view class="picker">{{purposeLabel ? purposeLabel :'请选择'}}</view>
+              </picker>
+            </view>
+            <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">关注点</view>
+        </view>
+        <view class="i_right">
+          <view class="selected_wrapper">
+            <view class="selectedTxt {{focusLabel ? 'selectedTxt_select' : ''}}">
+              <picker bindchange="onChangeFocus" range-key="showName" range="{{focusList}}">
+                <view class="picker">{{focusLabel ? focusLabel :'请选择'}}</view>
+              </picker>
+            </view>
+            <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 8rpx" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hide_item" bindtap="onTransferDropdown" data-name="brandStatus">
+      <view class="h_left">H品牌IQ</view>
+      <view class="h_righe">
+        <view class="hr_txt">{{brandStatus? '收起' : '展开'}}</view>
+        <view class="hr_img">
+          <image wx:if="{{brandStatus}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_top.png" style="width: 26rpx; height: 14rpx" />
+          <image wx:else mode="aspectFill" src="../../assets/images/page/icon_arrow_bottom.png" style="width: 26rpx; height: 14rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="{{['btn_wrapper', brandStatus ? '':'hide']}}">
+      <block wx:for="{{hIqList}}" wx:key="index">
+        <view class="{{['btn_item', item.selected ? 'selected_btn':'']}}" bindtap="onSelectHIq" data-index="{{index}}" data-item="{{item}}">
+          {{item.showName}}
+        </view>
+      </block>
+    </view>
+    <view class="hide_item" bindtap="onTransferDropdown" data-name="eCarStatus">
+      <view class="h_left">电动车IQ</view>
+      <view class="h_righe">
+        <view class="hr_txt">{{eCarStatus? '收起' : '展开'}}</view>
+        <view class="hr_img">
+          <image wx:if="{{eCarStatus}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_top.png" style="width: 26rpx; height: 14rpx" />
+          <image wx:else mode="aspectFill" src="../../assets/images/page/icon_arrow_bottom.png" style="width: 26rpx; height: 14rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="{{['btn_wrapper', eCarStatus ? '':'hide']}}">
+      <block wx:for="{{ecarIqList}}" wx:key="index">
+        <view class="{{['btn_item', item.selected ? 'selected_btn':'']}}" bindtap="onSelectECar" data-index="{{index}}" data-item="{{item}}">
+          {{item.showName}}
+        </view>
+      </block>
+    </view>
+    <view class="hide_item" bindtap="onTransferDropdown" data-name="rechargeStatus">
+      <view class="h_left">充电条件</view>
+      <view class="h_righe">
+        <view class="hr_txt">{{rechargeStatus? '收起' : '展开'}}</view>
+        <view class="hr_img">
+          <image wx:if="{{rechargeStatus}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_top.png" style="width: 26rpx; height: 14rpx" />
+          <image wx:else mode="aspectFill" src="../../assets/images/page/icon_arrow_bottom.png" style="width: 26rpx; height: 14rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="{{['btn_wrapper', rechargeStatus ? '':'hide']}}">
+      <block wx:for="{{rechargeList}}" wx:key="index">
+        <view class="{{['btn_item', item.selected ? 'selected_btn':'']}}" bindtap="onSelectRecharge" data-index="{{index}}" data-item="{{item}}">
+          {{item.showName}}
+        </view>
+      </block>
+    </view>
+    <view class="hide_item" bindtap="onTransferDropdown" data-name="specialStatus">
+      <view class="h_left">特别备注</view>
+      <view class="h_righe">
+        <view class="hr_txt">{{specialStatus? '收起' : '展开'}}</view>
+        <view class="hr_img">
+          <image wx:if="{{specialStatus}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_top.png" style="width: 26rpx; height: 14rpx" />
+          <image wx:else mode="aspectFill" src="../../assets/images/page/icon_arrow_bottom.png" style="width: 26rpx; height: 14rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="{{['defaultbg', specialStatus ? '':'hide']}}">
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">特殊职业</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="specialVocation" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">特殊喜好</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="specialLike" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">性格敏感点</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="personalitySensitive" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">禁忌话题</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="taboo" />
+          </view>
+        </view>
+      </view>
+      <view class="bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+      <view class="infoItem">
+        <view class="i_left">
+          <view wx:if="{{false}}" class="start">*</view>
+          <view class="txt">其他</view>
+        </view>
+        <view class="i_right">
+          <view class="input_wrapper">
+            <input class="input" type="text" placeholder-class="input_placeholder" placeholder="请填写" bindblur="onBlurInput" data-name="other" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hide_item" bindtap="onTransferDropdown" data-name="labelStatus">
+      <view class="h_left">标签</view>
+      <view class="h_righe">
+        <view class="hr_txt">{{labelStatus? '收起' : '展开'}}</view>
+        <view class="hr_img">
+          <image wx:if="{{labelStatus}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_top.png" style="width: 26rpx; height: 14rpx" />
+          <image wx:else mode="aspectFill" src="../../assets/images/page/icon_arrow_bottom.png" style="width: 26rpx; height: 14rpx" />
+        </view>
+      </view>
+    </view>
+    <view class="{{['btn_wrapper', labelStatus ? '':'hide']}}">
+      <view class="btn_item selected_btn" wx:for="{{leadData.leadsLabelDtos}}" wx:key="labelId">
+        {{item.labelName}}
+      </view>
+      <view class="btn_item" bindtap="onAddLabel">+新标签</view>
+    </view>
+  </view>
+  <view class="save">
+    <view class="save_btn">保存</view>
+  </view>
+</scroll-view>

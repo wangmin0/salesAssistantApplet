@@ -1,0 +1,82 @@
+<view class="container">
+    <view class="search_wrapper">
+        <view class="item {{defeatStatus === 'all' ? 'selectedItem' : ''}}" data-type="all" bind:tap="selectedDay">
+            <text>待审批({{wait_total}})</text>
+        </view>
+        <view class="item {{defeatStatus === 'has' ? 'selectedItem' : ''}}" data-type="has" bind:tap="selectedDay">
+            <text>已审批({{have_total}})</text>
+        </view>
+    </view>
+    <scroll-view class="clues" scroll-y="{{true}}">
+        <checkbox-group bindchange="checkboxChange">
+            <view wx:for="{{assignList}}" wx:key="{{index}}" class="clues_item">
+                <view class="item_left">
+                    <view class="checked">
+                        <label class="checkbox">
+                            <checkbox disabled="{{defeatStatus === 'has'}}" style="transform:scale(.7)" value="{{assignList[index].id}}" checked="{{assignList[index].checked}}" />
+                        </label>
+                    </view>
+                </view>
+                <view class="item_right">
+                    <view class="item_top">
+                        <view class="it_left">
+                            <view class="itl_title_wrapper">
+                                <view class="itlt_title">{{assignList[index].custName}}</view>
+                            </view>
+                            <view class="itl_phoone">{{assignList[index].mobile}}</view>
+                        </view>
+                        <view class="it_right" wx:if="{{assignList[index].defeatStatus===102416}}">
+                            <view class="agree" data-type="isOk" bindtap="topage">同意战败</view>
+                        </view>
+                    </view>
+                    <view class="item_line">
+                        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 4rpx" />
+                    </view>
+                    <view class="item_bottom">
+                        <view class="ib_left">
+                            <view class="ibl_text">参与活动：{{assignList[index].activityName}}</view>
+                            <view class="ibl_text">留资时间：{{assignList[index].registerTime}}</view>
+                        </view>
+                    </view>
+                    <view class="describe">
+                        <view class="ib_left">
+                            <view class="ibl_text">战败理由：{{assignList[index].reasonRemark[0].reasonDescription}}</view>
+                            <view class="ibl_text">申请时间：{{assignList[index].applyTime}}</view>
+                            <view class="ibl_text">申请人：{{assignList[index].proposerName}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </checkbox-group>
+        <view class="clues_bottom">
+            <view class="item_left">
+                <view class="checked">
+                    <!-- <label class="checkbox"> -->
+                    <checkbox disabled="{{defeatStatus === 'has'}}" bindtap="checkAll" checked="{{checkAll}}" style="transform:scale(.7)" value="" />
+                    全选({{batchIds.length}}/{{assignList.length}})
+                    <!-- </label> -->
+                </view>
+            </view>
+            <view class="item_right">
+                <view class="btn">
+                    <view class="left_btn" data-type="0" bindtap="dialog">驳回</view>
+                    <view class="right_btn" data-type="1" bindtap="dialog">同意</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view wx:if="{{isShow}}" class="mark"></view>
+    <view wx:if="{{isShow}}" class="dialog">
+        <view class="close">
+            <span bindtap="close" class="close_iocn">
+                <image mode="aspectFill" src="../../assets/images/page/icon_close.png" style="width: 26rpx; height: 26rpx" />
+            </span>
+        </view>
+        <view class="info {{batchIds.length>0 ? 'info' : 'hint'}}">
+            {{batchIds.length>0 ? '共选中'+batchIds.length+'条线索' : "至少选择一条"}}
+        </view>
+        <view wx:if="{{batchIds.length>0 ? true : false}}" class="commit">
+            <view class="btn" bindtap="commit">{{type === '0' ? "确认驳回": "同意战败"}}</view>
+        </view>
+    </view>
+</view>

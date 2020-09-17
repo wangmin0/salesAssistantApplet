@@ -1,0 +1,18 @@
+<view class="container" id="clueFollowFailure">
+  <view class="content">
+    <view class="asd"></view>
+    <view class="normal-cell-wrap">
+      <view class="normal-cell-left">暂败原因</view>
+      <view class="normal-cell-right">申请暂败后将由店长审批，可多选</view>
+    </view>
+    <view class="tab-normal-btn-wrap mt_30">
+      <view wx:for="{{dataMain.tempReasonList}}" data-index="{{index}}" class="btn_item {{ item._ac?'selected_btn':'' }}" wx:key="index" bind:tap="addReason">{{ item.showName }}</view>
+    </view>
+    <block wx:for="{{acReasons}}" wx:key="index">
+      <textarea class="tab-normal-textarea mgt-30" bind:input="input" value="{{ item._value }}" data-index="{{index}}" placeholder-class="tab-normal-inp-placeholder-class" placeholder="请输入{{item.showName}}" />
+    </block>
+  </view>
+  <view class="bottom_btn_wrapper" bind:tap="save">
+    <view class="micro">保存</view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<navigation-bar bind:back="back" title="活动确认" fixed hideBgc></navigation-bar>
+<scroll-view scroll-y="{{true}}" class="container">
+  <image mode="aspectFill" src="../../assets/images/page/activity_title_bg.png" style="width: 100%; height: 468rpx" />
+  <view class="main">
+    <view class="m_label">签到人</view>
+    <view class="m_value">张三丰</view>
+    <view class="m_label mt_58">签到时间：</view>
+    <view class="m_value">2020.7.15  10:00</view>
+  </view>
+  <image mode="aspectFill" src="../../assets/images/page/activity_bg.png" style="width: 100%; height: 234rpx" />
+  <view class="confirm_wrapper">
+    <view class="checkbox_wrapper">
+      <van-checkbox value="{{ radio }}" shape="square" bind:change="onChange">
+        <view class="cw_txt">领取礼品</view>
+      </van-checkbox>
+    </view>
+    <view class="btn">
+      <image mode="aspectFill" src="../../assets/images/page/activity_btn.png" style="width: 566rpx; height: 86rpx" />
+      <view class="btn_txt">确认签到</view>
+    </view>
+  </view>
+</scroll-view>

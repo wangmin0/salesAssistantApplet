@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/approval/approval",
+    "pages/waitAllot/waitAllot",
+    "pages/index/index",
+    "pages/storeHome/storeHome",
+    
+    "pages/lineDetails/lineDetails",
+    "pages/clueDetail/clueDetail",
+    "pages/activityManager/activityManager",
+    "pages/webview/webview",
+    "pages/me/me",
+    "pages/followUp/followUp",
+    "pages/allocate/allocate",
+    "pages/logs/logs",
+    "pages/clueList/clueList",
+    "pages/newClues/newClues",
+    "pages/createClue/createClue",
+    "pages/clueFollow/clueFollow",
+    "pages/clueFollowFailure/clueFollowFailure",
+    "pages/assistFollow/assistFollow",
+    "pages/activityConfirm/activityConfirm",
+    "pages/addLabel/addLabel",
+    "pages/forbid/forbid"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4477BC",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#FFFFFF",
+    "color": "#999999",
+    "selectedColor": "#5297FC",
+    "borderStyle": "white",
+    "list": [
+      {
+        "iconPath": "assets/images/page/home.png",
+        "selectedIconPath": "/assets/images/page/home_active.png",
+        "pagePath": "pages/storeHome/storeHome",
+        "selectedColor": "#5297FC",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "/assets/images/page/icon_plushead.png",
+        "iconPath": "/assets/images/page/icon_bigplus.png",
+        "selectedColor": "#5297FC"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "/assets/images/page/my.png",
+        "selectedIconPath": "/assets/images/page/my_active.png",
+        "selectedColor": "#5297FC",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

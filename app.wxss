@@ -1,0 +1,147 @@
+@charset "UTF-8";
+.flex {
+  display: flex;
+}
+
+.single-line {
+  text-overflow: ellipsis;
+  /*文字以省略号的方式隐藏*/
+  white-space: nowrap;
+  /*禁止文字内容折行*/
+  overflow: hidden;
+  /*超出部分溢出隐藏*/
+}
+
+view, image, text, navigator {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+image {
+  display: block;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.jusstify_center {
+  justify-content: center;
+}
+
+.align_center {
+  align-items: center;
+}
+
+.flex_direction {
+  flex-direction: column;
+}
+
+.mt_5 {
+  margin-top: 5rpx;
+}
+
+.ml_5 {
+  margin-left: 5rpx;
+}
+
+.ml_32 {
+  margin-left: 32rpx;
+}
+
+.mr_5 {
+  margin-right: 5rpx;
+}
+
+.mb_5 {
+  margin-bottom: 5rpx;
+}
+
+.ml_10 {
+  margin-left: 10rpx;
+}
+
+.mt_10 {
+  margin-top: 10rpx;
+}
+
+.mr_10 {
+  margin-right: 10rpx;
+}
+
+.mb_10 {
+  margin-bottom: 10rpx;
+}
+
+.mt_20 {
+  margin-top: 20rpx;
+}
+
+.mt_30 {
+  margin-top: 30rpx;
+}
+
+.mt_24 {
+  margin-top: 24rpx;
+}
+
+.ml_20 {
+  margin-left: 20rpx;
+}
+
+.mr_20 {
+  margin-right: 20rpx;
+}
+
+.mb_20 {
+  margin-bottom: 20rpx;
+}
+
+.mr_8 {
+  margin-right: 8rpx;
+}
+
+.mr_18 {
+  margin-right: 18rpx;
+}
+
+.primaryBtn {
+  background: rgba(49, 115, 205, 0.05);
+  border-radius: 4rpx;
+  border: 1px solid #3173cd;
+  font-size: 20rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #3173cd;
+  line-height: 28rpx;
+  padding: 0 12rpx;
+  display: flex;
+  align-items: center;
+}
+
+.warningBtn {
+  background: rgba(235, 154, 34, 0.05);
+  border-radius: 4rpx;
+  border: 1px solid #eb9a22;
+  font-size: 20rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #eb9a22;
+  line-height: 28rpx;
+  padding: 0 12rpx;
+  display: flex;
+  align-items: center;
+}

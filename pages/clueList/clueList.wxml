@@ -1,0 +1,182 @@
+<view class="container">
+  <view class="search_wrapper">
+    <view class="input_main">
+      <van-search custom-class="search_input" field-class="si_field" value="{{ value }}" placeholder="请输入手机号码" bind:change="searchChange" use-action-slot use-left-icon-slot>
+        <view slot="left-icon">
+          <image mode="aspectFill" src="../../assets/images/page/icon_search.png" style="width: 40rpx; height: 40rpx; margin-right: 12rpx" />
+        </view>
+      </van-search>
+    </view>
+    <view class="icon">
+      <image mode="aspectFill" src="../../assets/images/page/icon_sort.png" style="width: 40rpx; height: 40rpx" bind:tap="openSort" />
+      <image mode="aspectFill" src="../../assets/images/page/icon_screen.png" style="width: 40rpx; height: 40rpx; margin-left: 32rpx" bind:tap="openScreen" />
+    </view>
+  </view>
+  <scroll-view class="clues" scroll-y="{{true}}" enhanced show-scrollbar="{{false}}" paging-enabled="{{true}}" fast-deceleration="{{true}}" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+    <view wx:for="{{leads}}" class="clues_item" wx:key="leadsId" bind:tap="goClueDetail" data-item="{{ item }}">
+      <view class="item_top">
+        <view class="it_left">
+          <view class="itl_title_wrapper">
+            <view class="itlt_title">{{item.custName}}</view>
+            <view class="itlt_bage">{{item.leadsLevel}}级</view>
+          </view>
+          <view class="itl_phoone">{{item.mobile}}</view>
+        </view>
+        <view class="it_right">
+          <image mode="aspectFill" src="../../assets/images/page/icon_document.png" style="width: 48rpx; height: 48rpx" catchtap="goClueFollow" data-item="{{ item }}" />
+          <image class="ml_40" mode="aspectFill" src="../../assets/images/page/icon_phone.png" style="width: 48rpx; height: 48rpx" />
+          <image class="ml_44" mode="aspectFill" src="../../assets/images/page/icon_chat.png" style="width: 48rpx; height: 48rpx" />
+        </view>
+      </view>
+      <view class="item_line">
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 4rpx" />
+      </view>
+      <view class="item_bottom">
+        <view class="ib_left">
+          <view class="ibl_text">计划跟进时间：{{item.leadsCreateTime || ''}}</view>
+          <view class="ibl_text mt_10">线索来源：{{item.sourceChannelName || ''}}</view>
+        </view>
+        <view class="ib_right">
+          <view class="ibr_text" data-item="{{ item }}" catchtap="openLeadsHis">历史记录</view>
+          <view class="ibr_icon">
+            <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height:  26rpx" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 排序 -->
+<van-popup show="{{ showSort }}" position="right" custom-style="height: 100%; width: 640rpx" bind:close="onCloseSort" custom-class="sort_wrapper">
+  <block wx:for="{{sorts}}" wx:key="type">
+    <view class="sort_item" wx:key="type" data-type="{{item.type}}" catchtap="sortLeads">
+      <view class="si_txt">{{item.sortCn}}</view>
+      <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+    </view>
+  </block>
+</van-popup>
+<!-- 筛选 -->
+<van-popup show="{{ showScreen }}" position="right" custom-style="height: 100%; width: 640rpx" bind:close="onCloseScreen">
+  <view class="screen_wrapper">
+    <scroll-view class="screen_main" scroll-y="{{true}}">
+      <view class="sm_item">
+        <view class="smi_label">线索来源</view>
+        <view class="smi_btn_wrapper">
+          <block wx:for="{{leadsChannelList}}" wx:key="dictionaryId">
+            <view class="smib_item {{curChannel === item.dictionaryId ? 'smibi_select' : ''}}" data-dictionaryid="{{item.dictionaryId}}" catchtap="selectedChcanel">
+              {{item.showName}}
+            </view>
+          </block>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">线索等级</view>
+        <view class="smi_btn_wrapper">
+          <block wx:for="{{leadsLevels}}" wx:key="levelCode">
+            <view class="smib_item {{curLevel === item.levelCode ? 'smibi_select' : ''}}" data-levelcode="{{item.levelCode}}" catchtap="selectedLevel">
+              {{item.levelName}}
+            </view>
+          </block>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">线索状态</view>
+        <view class="smi_btn_wrapper">
+          <block wx:for="{{leadsStatusList}}" wx:key="dictionaryId">
+            <view class="smib_item {{curStatus === item.dictionaryId ? 'smibi_select' : ''}}" data-dictionaryId="{{item.dictionaryId}}" catchtap="selectedStatus">
+              {{item.showName}}
+            </view>
+          </block>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">参与活动</view>
+        <view class="smi_selectActivity {{activityName ? 'selectedValue' : ''}}" catchtap="openActivityName">
+          {{activityName || '活动名称'}}
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">城市</view>
+        <view class="smi_selectActivity {{cityName ? 'selectedValue' : ''}}" catchtap="openCity">
+          {{cityName || '请选择城市'}}
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">建档时间</view>
+        <view class="smi_time">
+          <view class="startTime {{startLeadsCreateTime ? 'selectedTime' : ''}}" catchtap="openStartDate">
+            {{startLeadsCreateTime || '开始时间'}}
+          </view>
+          <view class="zhi">至</view>
+          <view class="endTime {{endLeadsCreateTime ? 'selectedTime' : ''}}" catchtap="openEndDate">
+            {{endLeadsCreateTime || '结束时间'}}
+          </view>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+    </scroll-view>
+    <view class="sw_btn_wrapper">
+      <view class="swb_cancel" catchtap="cancel">取消</view>
+      <view class="swb_confirm" catchtap="confirm">确认</view>
+    </view>
+    <van-popup show="{{ isShowActivityName }}" position="right" custom-style="height: 100%; width: 100%" bind:close="onCloseActivityName" custom-class="sort_wrapper">
+      <view class="activity_search_wrapper">
+        <van-search value="{{ activityNameValue }}" show-action placeholder="请输入搜索关键词" bind:change="onSearchactivityName" bind:cancel="onCancelactivityName"></van-search>
+        <scroll-view class="an_list" scroll-y="{{true}}">
+          <view wx:for="{{activityNameList}}" wx:key="activityId" class="an_list_item" data-activityname="{{item.activityName}}" catchtap="selectActivityName">
+            <view class="anli_txt">{{item.activityName}}</view>
+            <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+          </view>
+        </scroll-view>
+      </view>
+    </van-popup>
+  </view>
+</van-popup>
+<!-- 历史记录 -->
+<van-popup show="{{ isShowHis }}" closeable position="bottom" custom-style="height: 80%" bind:close="closeLeadsHis">
+  <scroll-view class="leads_his" scroll-y="{{true}}">
+    <view class="follow_wrapper">
+      <view wx:for="{{tFollowResultList}}" wx:key="id" class="step_item">
+        <view class="si_top">
+          <view class="sit_left">
+            <view class="sitl_bage">{{item.newLevelName}}</view>
+            <view class="sltl_stage">{{item.followTypeName}}</view>
+          </view>
+          <view class="sit_right">
+            <view class="sitr_name">{{item.salesConsultant}}</view>
+            <view class="sitr_date">{{item.actualTime}}</view>
+          </view>
+        </view>
+        <view class="si_middle">
+          <view class="sim_statusbtn" wx:for="{{item.followDo}}" wx:key="index">{{item}}</view>
+        </view>
+        <view class="si_bottom">#{{item.activityName}}# {{item.resultFeedback}}</view>
+        <view class="rotate_spot"></view>
+        <view wx:if="{{index != tFollowResultList.length - 1}}" class="botted_line"></view>
+      </view>
+    </view>
+  </scroll-view>
+</van-popup>
+<view class="navigator_plus">
+  <navigator url="/pages/createClue/createClue">
+    <image mode="aspectFill" src="../../assets/images/page/icon_bigplus.png" style="width: 110rpx; height: 110rpx" />
+  </navigator>
+</view>
+<!-- 选择城市 -->
+<van-popup show="{{ isShowCity }}" position="bottom" custom-style="height: 650rpx; width: 100%" bind:close="onCloseCity" custom-class="sort_wrapper">
+  <van-picker columns="{{ columns }}" value-key="areaName" show-toolbar bind:change="onChangeCity" bind:confirm="cityConfirm" bind:cancel="cityCancel" />
+  <!-- <van-area area-list="{{ areaList }}" /> -->
+</van-popup>
+<!-- 选择开始时间 -->
+<van-popup show="{{ isShowStartDate }}" position="bottom" custom-style="height: 650rpx; width: 100%" bind:close="onCloseStartDate" custom-class="sort_wrapper">
+  <van-datetime-picker type="date" value="{{ startDate }}" bind:confirm="onConfirmStartDate" bind:cancel="onCancelStartDate" formatter="{{ formatter }}" />
+</van-popup>
+<!-- 选择结束时间 -->
+<van-popup show="{{ isShowEndDate }}" position="bottom" custom-style="height: 650rpx; width: 100%" bind:close="onCloseEndDate" custom-class="sort_wrapper">
+  <van-datetime-picker type="date" value="{{ endDate }}" bind:confirm="onConfirmEndDate" bind:cancel="onCancelEndDate" formatter="{{ formatter }}" />
+</van-popup>

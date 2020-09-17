@@ -1,0 +1,368 @@
+<view class="container" id="clueFollow">
+  <view class="baseinfo">
+    <view class="user">
+      <view class="u_left">
+        <view class="ul_top">
+          <view class="ult_name">{{ dataMain.leadsMain.custName }}</view>
+          <view class="ult_bage">{{ findLevel.levelName }}</view>
+        </view>
+        <view class="ul_bottom">
+          <view class="ulb_phone">{{ dataMain.leadsMain.mobile }}</view>
+          <view class="ulb_bage">@{{ dataMain.leadsMain.cityName }}</view>
+        </view>
+      </view>
+      <view class="u_right">
+        <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+               style="width: 14rpx; height: 26rpx"/>
+      </view>
+    </view>
+    <view class="info_item mt_30">客户来源：{{ dataMain.leadsMain.leadsSource }}</view>
+    <view class="info_item mt_10">建档时间：{{dataMain.leadsMain.leadsCreateTime}}</view>
+<!--    <view class="info_item mt_10">备注信息：{{dataMain.leadsMain.comment}}</view>-->
+    <view class="btn_wrapper mt_30">
+      <view wx:for="{{dataMain.labelList}}" wx:key="index" class="btn_item selected_btn">{{item.labelName}}</view>
+      <!-- <view class="btn_item selected_btn">10w+24期</view> -->
+      <!-- <view class="btn_item">+新标签</view> -->
+    </view>
+  </view>
+  <view class="tab_wrapper">
+    <view class="tab_left" bind:tap="setActiveTab" data-id="1">
+      <image class="tab_bg" mode="aspectFill" wx:if="{{currentAcTab==1}}"
+             src="../../assets/images/page/icon_selected_tabbg.png"/>
+      <image class="tab_bg" mode="aspectFill" wx:else
+             src="../../assets/images/page/icon_tabbg.png"/>
+
+      <view class="tab_main {{currentAcTab==1 ? 'tab_txt' : 'tab_select_txt'}}">电话邀约</view>
+    </view>
+    <view class="tab_right" bind:tap="setActiveTab" data-id="2">
+      <image class="tab_bg" wx:if="{{currentAcTab==2}}" mode="aspectFill"
+             src="../../assets/images/page/icon_selected_tabbg.png"/>
+      <image class="tab_bg" wx:else mode="aspectFill"
+             src="../../assets/images/page/icon_tabbg.png"/>
+      <view class="tab_main {{currentAcTab==2 ? 'tab_txt' : 'tab_select_txt'}}">线索到店</view>
+    </view>
+  </view>
+  <scroll-view class="tab_content" scroll-y="{{true}}">
+    <view wx:if="{{currentAcTab==1}}" class="active_wrapper">
+      <view class="content">
+        <view class="tab-normal-title">
+          联系方式
+        </view>
+        <view>
+          <view class="tab-normal-btn-wrap mt_30">
+            <view wx:for="{{dataMain.connactType}}" wx:key="index" bind:tap="chooseActive" data-index="{{ index }}" data-name="fsBtnAc" data-item="{{ item }}" class="btn_item {{ fsBtnAc == index ? 'selected_btn':'' }}">{{ item.showName }}</view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content">
+        <view class="tab-normal-title">
+          邀约目的
+        </view>
+        <view>
+          <view class="tab-normal-btn-wrap mt_30">
+            <view wx:for="{{dataMain.toDoList}}" wx:key="index" bind:tap="inviteAc" data-index="{{ index }}" class="btn_item {{  item._ac ? 'selected_btn':'' }}">{{ item.showName }}</view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content" wx:if="{{showAcName}}">
+        <view class="tab-normal-title">
+          活动名称
+        </view>
+        <view class="tab-normal-inp-wrap">
+          <input class="tab-normal-inp " model:value="{{activityName}}" catch:tap="showSearchAcName" placeholder-class="tab-normal-inp-placeholder-class"
+                 placeholder="请输入活动名称"/>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content">
+        <view class="tab-normal-title">
+          跟进备注
+        </view>
+        <view class="tab-normal-inp-wrap">
+          <textarea class="tab-normal-textarea"
+                    model:value="{{followComment}}"
+                    placeholder-class="tab-normal-inp-placeholder-class"
+                    placeholder="请仔细描述本次的跟进情况"/>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content " bind:tap="currentFollowActionHandle">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">本次线索等级</view>
+            <image mode="aspectFill" src="../../assets/images/page/icon_question.png"
+                   style="width: 30rpx; height: 30rpx; margin-left: 10rpx"/>
+          </view>
+          <view class="i_right">
+            <view class="selected_wrapper">
+              <view class="selectedTxt {{currentFollowActionVal ? 'selectedTxt_select' : ''}}">
+                {{currentFollowActionVal
+                ? currentFollowActionVal
+                : '请选择'}}
+              </view>
+              <image wx:if="{{whichType!=2}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                     style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content " wx:if="{{rejectTxt}}" bind:tap="gotoClueFollowFailure">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">暂败原因</view>
+          </view>
+          <view class="i_right">
+            <view class="selected_wrapper">
+              <view class="selectedTxt selectedTxt_select rejectTxt">
+                {{ rejectTxt }}
+              </view>
+              <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                     style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content ">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">本次跟进时间</view>
+          </view>
+          <view class="i_right">
+            <view class="i_right_normal_txt">
+              {{time}}
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content " bind:tap="clueLevelHandle" wx:if="{{!curretnLevelZanBai}}">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">下次跟进时间</view>
+          </view>
+          <view class="i_right">
+            <view class="selected_wrapper">
+              <view class="selectedTxt {{nextFollowTimeVal? 'selectedTxt_select' : ''}}">
+                {{nextFollowTimeVal
+                ? nextFollowTimeVal
+                : '请选择'}}
+              </view>
+              <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                     style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="active_wrapper">
+      <view class="content">
+        <view class="tab-normal-title">
+          到店方式
+        </view>
+        <view>
+          <view class="tab-normal-btn-wrap mt_30">
+            <view wx:for="{{dataMain.arriveType}}" wx:key="index" bind:tap="chooseActive" data-index="{{ index }}" data-name="fsBtnAc" data-item="{{ item }}" class="btn_item {{ fsBtnAc == index ? 'selected_btn':'' }}">{{ item.showName }}</view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content">
+        <view class="tab-normal-title">
+          到店目的
+        </view>
+        <view>
+          <view class="tab-normal-btn-wrap mt_30">
+            <view wx:for="{{dataMain.toDoList}}" wx:key="index" bind:tap="inviteAc" data-index="{{ index }}" class="btn_item {{  item._ac ? 'selected_btn':'' }}">{{ item.showName }}</view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content" wx:if="{{showAcName}}">
+        <view class="tab-normal-title">
+          活动名称
+        </view>
+        <view class="tab-normal-inp-wrap">
+          <input class="tab-normal-inp " model:value="{{activityName}}" catch:tap="showSearchAcName" placeholder-class="tab-normal-inp-placeholder-class"
+                 placeholder="请输入活动名称"/>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content">
+        <view class="tab-normal-title">
+          跟进备注
+        </view>
+        <view class="tab-normal-inp-wrap">
+          <textarea class="tab-normal-textarea"
+                    model:value="{{followComment}}"
+                    placeholder-class="tab-normal-inp-placeholder-class"
+                    placeholder="请仔细描述本次的跟进情况"/>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content " bind:tap="currentFollowActionHandle">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">本次线索等级</view>
+            <image mode="aspectFill" src="../../assets/images/page/icon_question.png"
+                   style="width: 30rpx; height: 30rpx; margin-left: 10rpx"/>
+          </view>
+          <view class="i_right">
+            <view class="selected_wrapper">
+              <view class="selectedTxt {{currentFollowActionVal ? 'selectedTxt_select' : ''}}">
+                {{currentFollowActionVal
+                ? currentFollowActionVal
+                : '请选择'}}
+              </view>
+              <image wx:if="{{whichType!=2}}" mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                     style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content " wx:if="{{rejectTxt}}" bind:tap="gotoClueFollowFailure">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">暂败原因</view>
+          </view>
+          <view class="i_right">
+            <view class="selected_wrapper">
+              <view class="selectedTxt selectedTxt_select rejectTxt">
+                {{ rejectTxt }}
+              </view>
+              <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                     style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content ">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">本次跟进时间</view>
+          </view>
+          <view class="i_right">
+            <view class="i_right_normal_txt">
+              {{time}}
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+      <view class="content " bind:tap="clueLevelHandle" wx:if="{{!curretnLevelZanBai}}">
+        <view class="infoItem">
+          <view class="i_left">
+            <view class="txt">下次跟进时间</view>
+          </view>
+          <view class="i_right">
+            <view class="selected_wrapper">
+              <view class="selectedTxt {{nextFollowTimeVal? 'selectedTxt_select' : ''}}">
+                {{nextFollowTimeVal
+                ? nextFollowTimeVal
+                : '请选择'}}
+              </view>
+              <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                     style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+            </view>
+          </view>
+        </view>
+        <view class="bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                 style="width: 100%; height: 8rpx;"/>
+        </view>
+      </view>
+    </view>
+
+    <van-action-sheet
+        class="normal-action-sheet next-follow"
+        show="{{ show }}"
+        actions="{{ nextFollowArea }}"
+        bind:close="onClose"
+        bind:select="handleSelect"
+    />
+    <van-action-sheet
+        class="normal-action-sheet"
+        show="{{ currentFollowTimeAction }}"
+        bind:close="onClose"
+    >
+      <view class="currentFollowTimeAction section">
+        <view bind:tap="handleCurrent" data-item="{{item}}" wx:for="{{dataMain.leadsLevelList}}"
+              wx:key="name" >
+          <view class="cont">
+            <view class="normal-cell-wrap">
+              <view class="normal-cell-left">{{item.levelName}}</view>
+              <view class="normal-cell-right">{{item.levelRemark}}</view>
+            </view>
+          </view>
+          <view class="bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                   style="width: 100%; height: 8rpx;margin-left: 30rpx;"/>
+          </view>
+        </view>
+      </view>
+    </van-action-sheet>
+    <van-popup show="{{ isShowActivityName }}" position="right" custom-style="height: 100%; width: 80%" bind:close="onCloseActivityName" custom-class="sort_wrapper">
+      <van-search model:value="{{ activityNameValue }}" focus="{{acSearchFocus}}" bind:search="searchAcName" placeholder="请输入搜索关键词" />
+      <scroll-view class="an_list" scroll-y="{{true}}" wx:if="{{searchAcNames.length}}">
+        <view wx:for="{{searchAcNames}}" wx:key="index" class="an_list_item" data-item="{{ item }}" catchtap="selectActivityName">
+          <view class="anli_txt">{{item.activityName}}</view>
+          <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+        </view>
+      </scroll-view>
+    </van-popup>
+  </scroll-view>
+  <view class="bottom_btn_wrapper" bind:tap="submit">
+    <view class="micro">保存</view>
+  </view>
+</view>

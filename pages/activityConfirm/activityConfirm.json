@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "navigation-bar": "/components/navigationBar/navigationBar",
+    "van-checkbox": "@vant/weapp/checkbox/index"
+  }
+}

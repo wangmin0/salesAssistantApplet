@@ -1,0 +1,130 @@
+<view class="container" id="activityManager">
+  <view class="search_wrapper">
+    <view class="input_main">
+      <van-search custom-class="search_input" field-class="si_field" bind:search="searchInp" bind:clear="searchInp" value="{{ acNameValue }}" placeholder="请输入活动名称" use-action-slot use-left-icon-slot>
+        <view slot="left-icon">
+          <image mode="aspectFill" src="../../assets/images/page/icon_search.png" style="width: 40rpx; height: 40rpx; margin-right: 12rpx" />
+        </view>
+      </van-search>
+    </view>
+    <view class="icon">
+      <image mode="aspectFill" src="../../assets/images/page/icon_sort.png" style="width: 40rpx; height: 40rpx" bind:tap="openSort" />
+      <image mode="aspectFill" src="../../assets/images/page/icon_screen.png" style="width: 40rpx; height: 40rpx; margin-left: 32rpx" bind:tap="openScreen" />
+    </view>
+  </view>
+  <scroll-view class="clues"
+               scroll-y
+               enhanced
+               refresher-enabled
+               refresher-threshold="{{80}}"
+               bindrefresherrefresh="refresh"
+               refresher-triggered="{{ refreshFlag }}"
+               show-scrollbar="{{false}}"
+               paging-enabled="{{true}}"
+               fast-deceleration="{{true}}"
+               bindscrolltolower="loadMore">
+    <view class="a_item" wx:for="{{activityList}}" bind:tap="gotoDetail" data-item="{{ item }}" wx:key="index">
+      <view class="ai_main">
+        <view class="aim_left">
+          <view class="aiml_top">
+            <view class="aimlt_activen_name">{{item.activityName}}</view>
+            <view class="aimlt_bage ml_10" wx:for="{{item.activityLabelName}}" wx:key="index">{{item}}</view>
+          </view>
+          <view class="aiml_bottom">
+            <view class="aimlb_txt">活动方式：{{item.propertiesName}}</view>
+            <view class="aimlb_txt">活动时间：{{ item.beginTime }}至{{ item.endTime }}</view>
+          </view>
+        </view>
+        <view class="aim_right">
+          <!--            <view class="aimr_txt {{index === 0 ? 'aimr_default' : index === 1 ? 'aimr_select_success' : index === 2 ? 'aimr_select_warning' : index === 3 ? 'aimr_select_danger' : ''}}">-->
+          <!--              {{item._name}}-->
+          <!--            </view>-->
+          <view class="aimr_txt {{item.signInStatus==1?'aimr_select_warning':'aimr_select_danger'}}">
+            {{item._name}}
+          </view>
+          <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 10rpx" />
+        </view>
+      </view>
+      <view class="ai_bottomline">
+        <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+      </view>
+    </view>
+  </scroll-view>
+</view>
+    <!-- 排序 -->
+<van-popup show="{{ showSort }}" position="right" custom-style="height: 100%; width: 640rpx" bind:close="onCloseSort" custom-class="sort_wrapper">
+  <block wx:for="{{sorts}}" wx:key="type">
+    <view class="sort_item" wx:key="type" data-type="{{item.type}}" catchtap="sortLs">
+      <view class="si_txt">{{item.sortCn}}</view>
+      <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+    </view>
+  </block>
+</van-popup>
+    <!-- 筛选 -->
+<van-popup show="{{ showScreen }}" position="right" custom-style="height: 100%; width: 640rpx" bind:close="onCloseScreen">
+  <view class="screen_wrapper">
+    <scroll-view class="screen_main" scroll-y="{{true}}">
+      <view class="sm_item">
+        <view class="smi_label">状态</view>
+        <view class="smi_btn_wrapper">
+          <view wx:for="{{acStatus}}" wx:key="index" bind:tap="handleSelect" data-index="{{ index }}" data-target="acStatus" class="smib_item {{ item.ac ? 'smibi_select':'' }}">{{item.showName}}</view>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">活动方式</view>
+        <view class="smi_btn_wrapper">
+          <view wx:for="{{acMode}}" wx:key="index" bind:tap="handleSelect" data-index="{{ index }}" data-target="acMode"  class="smib_item {{ item.ac ? 'smibi_select':'' }}">{{item.showName}}</view>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+<!--      <view class="sm_item">-->
+<!--        <view class="smi_label">报名方式</view>-->
+<!--        <view class="smi_btn_wrapper">-->
+<!--          <view wx:for="{{acSiupinType}}" bind:tap="handleSelect" data-index="{{ index }}" data-target="acSiupinType"  class="smib_item {{ item.ac ? 'smibi_select':'' }}">{{item.showName}}</view>        </view>-->
+<!--        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />-->
+<!--      </view>-->
+      <view class="sm_item">
+        <view class="smi_label">活动类型</view>
+        <view class="smi_btn_wrapper">
+          <view wx:for="{{acType}}" wx:key="index" bind:tap="handleSelect" data-index="{{ index }}" data-target="acType"  class="smib_item {{ item.ac ? 'smibi_select':'' }}">{{item.showName}}</view>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+      <view class="sm_item">
+        <view class="smi_label">活动时间</view>
+        <view class="smi_time">
+          <view class="startTime {{startCreateTime ? 'selectedTime' : ''}}" catchtap="openStartDate">{{startCreateTime || '开始时间'}}</view>
+          <view class="zhi">至</view>
+          <view class="endTime {{endCreateTime ? 'selectedTime' : ''}}" catchtap="openEndDate">{{endCreateTime || '结束时间'}}</view>
+        </view>
+        <image mode="aspectFill" src="../../assets/images/page/bottomline.png" style="width: 100%; height: 2rpx" />
+      </view>
+    </scroll-view>
+    <view class="sw_btn_wrapper">
+      <view class="swb_cancel" catchtap="reset">重置</view>
+      <view class="swb_confirm" catchtap="confirm">确认</view>
+    </view>
+  </view>
+</van-popup>
+<!-- 选择开始时间 -->
+<van-popup show="{{ isShowStartDate }}" position="bottom" custom-style="height: 650rpx; width: 100%" bind:close="onCloseStartDate" custom-class="sort_wrapper">
+  <van-datetime-picker
+      type="date"
+      value="{{ startDate }}"
+      bind:confirm="onConfirmStartDate"
+      bind:cancel="onCancelStartDate"
+      formatter="{{ formatter }}"
+  />
+</van-popup>
+
+    <!-- 选择结束时间 -->
+<van-popup show="{{ isShowEndDate }}" position="bottom" custom-style="height: 650rpx; width: 100%" bind:close="onCloseEndDate" custom-class="sort_wrapper">
+  <van-datetime-picker
+      type="date"
+      value="{{ endDate }}"
+      bind:confirm="onConfirmEndDate"
+      bind:cancel="onCancelEndDate"
+      formatter="{{ formatter }}"
+  />
+</van-popup>

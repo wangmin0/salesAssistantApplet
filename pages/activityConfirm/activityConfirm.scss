@@ -1,0 +1,58 @@
+.container {
+  background: #fff;
+  .main {
+    margin-top: 58rpx;
+    margin-left: 92rpx;
+    .m_label {
+      font-size: 30rpx;
+      font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+      font-weight: 400;
+      color: #5f667a;
+      line-height: 36rpx;
+    }
+    .m_value {
+      font-size: 54rpx;
+      font-family: TrasandinaBook;
+      color: #262c37;
+      line-height: 60rpx;
+      margin-top: 15rpx;
+    }
+  }
+  .mt_58 {
+    margin-top: 58rpx;
+  }
+  .confirm_wrapper {
+    margin-top: 262rpx;
+    margin-bottom: 156rpx;
+    .checkbox_wrapper {
+      display: flex;
+      justify-content: center;
+      .cw_txt {
+        font-size: 30rpx;
+        font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+        font-weight: 400;
+        color: #262b38;
+        line-height: 36rpx;
+      }
+    }
+    .btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 50rpx;
+      position: relative;
+      .btn_txt {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 30rpx;
+        font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+        font-weight: 400;
+        color: #262b38;
+        line-height: 86rpx;
+        z-index: 10;
+      }
+    }
+  }
+}

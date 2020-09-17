@@ -1,0 +1,432 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container .search_wrapper {
+  height: 104rpx;
+  width: 100%;
+  padding: 20rpx 15rpx;
+  display: flex;
+  align-items: center;
+}
+.container .search_wrapper .input_main {
+  width: 540rpx;
+}
+.container .search_wrapper .input_main .search_input {
+  width: 100%;
+  height: 64rpx;
+}
+.container .search_wrapper .input_main .si_field {
+  width: 500rpx;
+  height: 64rpx;
+}
+.container .search_wrapper .input_main .inputplaceholder {
+  font-size: 29rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #666666;
+  line-height: 29rpx;
+  background: #f6f6f6;
+}
+.container .search_wrapper .icon {
+  display: flex;
+  margin-left: 46rpx;
+}
+.container .clues {
+  height: calc(100vh - 104rpx);
+  background-color: #f6f6f6;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+}
+.container .clues .clues_item {
+  padding: 30rpx 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 20rpx 30rpx 0;
+}
+.container .clues .clues_item .item_top {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30rpx;
+  margin-right: 32rpx;
+}
+.container .clues .clues_item .item_top .it_left .itl_title_wrapper {
+  display: flex;
+  align-items: center;
+}
+.container .clues .clues_item .item_top .it_left .itl_title_wrapper .itlt_title {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+  font-weight: 600;
+  color: #212121;
+  line-height: 36rpx;
+}
+.container .clues .clues_item .item_top .it_left .itl_title_wrapper .itlt_bage {
+  height: 28rpx;
+  background: #3173cd;
+  border-radius: 4rpx;
+  padding: 0 4rpx;
+  font-size: 20rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: white;
+  line-height: 28rpx;
+  margin-left: 10rpx;
+}
+.container .clues .clues_item .item_top .it_left .itl_phoone {
+  font-size: 28rpx;
+  font-family: Avenir-Heavy, Avenir;
+  font-weight: 800;
+  color: #212121;
+  line-height: 36rpx;
+  margin-top: 10rpx;
+}
+.container .clues .clues_item .item_top .it_right {
+  display: flex;
+}
+.container .clues .clues_item .item_line {
+  margin-left: 30rpx;
+  margin-top: 24rpx;
+  margin-bottom: 22rpx;
+}
+.container .clues .clues_item .item_bottom {
+  margin: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.container .clues .clues_item .item_bottom .ib_left .ibl_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+.container .clues .clues_item .item_bottom .ib_right {
+  display: flex;
+  align-items: center;
+}
+.container .clues .clues_item .item_bottom .ib_right .ibr_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #3173cd;
+  line-height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.sort_wrapper .sort_item {
+  margin-left: 30rpx;
+}
+.sort_wrapper .sort_item .si_txt {
+  margin: 40rpx 0 24rpx;
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 36rpx;
+}
+
+.screen_wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+.screen_wrapper .screen_main {
+  flex: 1;
+  height: 0;
+  padding-bottom: 20rpx;
+}
+.screen_wrapper .screen_main .sm_item {
+  margin-left: 40rpx;
+  box-sizing: border-box;
+}
+.screen_wrapper .screen_main .sm_item .smi_label {
+  margin: 40rpx 0 30rpx;
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+  font-weight: 500;
+  color: #212121;
+  line-height: 36rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_btn_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.screen_wrapper .screen_main .sm_item .smi_btn_wrapper .smib_item {
+  width: 124rpx;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #212121;
+  padding: 12rpx 0;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+  margin-right: 22rpx;
+  margin-bottom: 34rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_btn_wrapper .smibi_select {
+  border: 1px solid #3173cd;
+  background: rgba(49, 115, 205, 0.05);
+  color: #3173cd;
+}
+.screen_wrapper .screen_main .sm_item .smi_input_wrapper .smii_input {
+  border-radius: 4rpx;
+  border: 1rpx solid #d1d1d1;
+  margin-right: 30rpx;
+  height: 56rpx;
+  margin-bottom: 32rpx;
+  padding-left: 1em;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_input_wrapper .smii_placeholder {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 30rpx;
+  margin-bottom: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_select .smi_placeholder {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_time {
+  display: flex;
+  align-items: center;
+  margin-right: 30rpx;
+  margin-bottom: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_time .zhi {
+  margin: 0 29rpx;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .smi_time .startTime,
+.screen_wrapper .screen_main .sm_item .smi_time .endTime {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+  text-align: center;
+}
+.screen_wrapper .screen_main .sm_item .smi_time .selectedTime {
+  color: #212121;
+}
+.screen_wrapper .screen_main .sm_item .smi_selectActivity {
+  width: 570rpx;
+  border-radius: 4rpx;
+  border: 1px solid #d1d1d1;
+  margin-right: 30rpx;
+  margin-bottom: 32rpx;
+  padding: 12rpx 20rpx;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+.screen_wrapper .screen_main .sm_item .selectedValue {
+  color: #212121;
+}
+.screen_wrapper .sw_btn_wrapper {
+  width: 100%;
+  display: flex;
+  padding: 20rpx 40rpx;
+  border-top: 2rpx solid #eee;
+  height: 122rpx;
+}
+.screen_wrapper .sw_btn_wrapper .swb_cancel {
+  width: 160rpx;
+  height: 80rpx;
+  border: 2rpx solid #212121;
+  font-size: 32rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 80rpx;
+  text-align: center;
+}
+.screen_wrapper .sw_btn_wrapper .swb_confirm {
+  width: 380rpx;
+  height: 80rpx;
+  background: #3173cd;
+  border: 2rpx solid #3173cd;
+  font-size: 32rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 80rpx;
+  margin-left: 20rpx;
+  text-align: center;
+}
+.screen_wrapper .activity_search_wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.screen_wrapper .an_list {
+  flex: 1;
+  height: 0;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.screen_wrapper .an_list .an_list_item {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+}
+.screen_wrapper .an_list .anli_txt {
+  line-height: 98rpx;
+}
+
+.navigator_plus {
+  position: fixed;
+  bottom: 52rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.leads_his {
+  margin-top: 10%;
+  height: 90%;
+}
+
+.follow_wrapper {
+  padding: 28rpx 30rpx 20rpx 32rpx;
+}
+.follow_wrapper .step_item {
+  padding: 20rpx;
+  background: #fafafa;
+  margin-left: 38rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.follow_wrapper .step_item .si_top {
+  display: flex;
+  justify-content: space-between;
+}
+.follow_wrapper .step_item .si_top .sit_left {
+  display: flex;
+  align-items: center;
+}
+.follow_wrapper .step_item .si_top .sit_left .sitl_bage {
+  background: #3173cd;
+  border-radius: 4rpx;
+  padding: 0 4rpx;
+  font-size: 20rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 28rpx;
+}
+.follow_wrapper .step_item .si_top .sit_left .sltl_stage {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+  font-weight: 600;
+  color: #212121;
+  line-height: 36rpx;
+  margin-left: 10rpx;
+}
+.follow_wrapper .step_item .si_top .sit_right {
+  display: flex;
+  align-items: center;
+}
+.follow_wrapper .step_item .si_top .sit_right .sitr_name {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+  margin-right: 20rpx;
+}
+.follow_wrapper .step_item .si_top .sit_right .sitr_date {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+  -webkit-text-stroke: 1rpx #888888;
+  text-stroke: 1rpx #888888;
+}
+.follow_wrapper .step_item .si_middle {
+  display: flex;
+  margin-top: 16rpx;
+}
+.follow_wrapper .step_item .si_middle .sim_statusbtn {
+  background: rgba(235, 154, 34, 0.05);
+  border-radius: 4px;
+  padding: 0 8rpx;
+  font-size: 20rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #eb9a22;
+  line-height: 28rpx;
+}
+.follow_wrapper .step_item .si_middle .simsb_wraning {
+  color: #eb9a22;
+  background: rgba(235, 154, 34, 0.05);
+}
+.follow_wrapper .step_item .si_middle .simsb_primary {
+  color: #3173cd;
+  background: rgba(49, 115, 205, 0.05);
+}
+.follow_wrapper .step_item .si_bottom {
+  margin-top: 22rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+}
+.follow_wrapper .step_item .rotate_spot {
+  width: 8rpx;
+  height: 8rpx;
+  background: #3173cd;
+  position: absolute;
+  top: 34rpx;
+  left: -22rpx;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+  margin: 6rpx 0;
+  z-index: 10;
+}
+.follow_wrapper .step_item .botted_line {
+  height: 97%;
+  position: absolute;
+  top: 56rpx;
+  left: -20rpx;
+  border-left: 2rpx #e6e7e8 dashed;
+}
+
+.ml_40 {
+  margin-left: 40rpx;
+}
+
+.ml_44 {
+  margin-left: 44rpx;
+}

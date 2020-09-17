@@ -1,0 +1,203 @@
+.container {
+    background-color: #f6f6f6;
+    .title {
+      position: relative;
+      background-color: #fff;
+      height: 532rpx;
+      .title_main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+  
+        .tm_top {
+          display: flex;
+          align-items: center;
+          margin-left: 46rpx;
+          margin-top: 10rpx;
+        }
+        .tmt_text {
+          margin-left: 16rpx;
+          .tmtt_top {
+            font-size: 32rpx;
+            font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            line-height: 40rpx;
+          }
+          .tmtt_bottom {
+            font-size: 28rpx;
+            font-family: DFPKingGothicGB-Light, DFPKingGothicGB;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            line-height: 40rpx;
+            margin-top: 8rpx;
+          }
+        }
+        .tmt_daiban {
+          display: flex;
+          align-items: center;
+          margin-top: 24rpx;
+          .item {
+            flex: 1;
+            text-align: center;
+            .tmtdbi_bigtitle {
+              font-size: 48rpx;
+              font-family: Avenir-Heavy, Avenir;
+              font-weight: 800;
+              color: rgba(255, 255, 255, 1);
+              line-height: 48rpx;
+            }
+            .tmtdbi_smalltitle {
+              font-size: 24rpx;
+              font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+              font-weight: 400;
+              color: rgba(255, 255, 255, 1);
+              line-height: 32rpx;
+              margin-top: 18rpx;
+            }
+          }
+          .line {
+            width: 2rpx;
+            height: 40rpx;
+            background-color: #fff;
+          }
+        }
+        .modules {
+          height: 184rpx;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          margin-top: 70rpx;
+          .m_item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .mi_text {
+              font-size: 24rpx;
+              font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+              font-weight: 400;
+              color: rgba(18, 18, 18, 1);
+              line-height: 32rpx;
+              margin-top: 10rpx;
+            }
+          }
+        }
+      }
+    }
+  
+    .tipinfo {
+      height: 208rpx;
+      width: 100%;
+      margin: 20rpx 0;
+      display: flex;
+      background-color: #fff;
+      padding: 30rpx 28rpx;
+      .ti_left {
+        flex: 1;
+        // padding: 30rpx 0;
+        .til_item {
+          display: flex;
+          align-items: center;
+          .til_title {
+            font-size: 28rpx;
+            font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+            font-weight: 500;
+            color: rgba(33, 33, 33, 1);
+            line-height: 36rpx;
+          }
+          .titl_info {
+            font-size: 28rpx;
+            font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+            font-weight: 500;
+            color: rgba(33, 33, 33, 1);
+            line-height: 36rpx;
+          }
+        }
+      }
+      .ti_right {
+        width: 14rpx;
+        display: flex;
+        align-items: center;
+      }
+    }
+  
+    .hot {
+      background-color: #fff;
+      .h_title {
+        display: flex;
+        justify-content: space-between;
+        padding: 30rpx 29rpx 40rpx;
+        .ht_left {
+          display: flex;
+          align-items: center;
+          .htl_line {
+            width: 8rpx;
+            height: 36rpx;
+            background: rgba(49, 115, 205, 1);
+          }
+          .htl_text {
+            font-size: 36rpx;
+            font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+            font-weight: 600;
+            color: rgba(33, 33, 33, 1);
+            line-height: 44rpx;
+            margin-left: 10rpx;
+          }
+        }
+        .ht_right {
+          display: flex;
+          align-items: center;
+          .htr_text {
+            font-size: 28rpx;
+            font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+            font-weight: 400;
+            color: rgba(33, 33, 33, 1);
+            line-height: 36rpx;
+            margin-right: 10rpx;
+          }
+        }
+      }
+      .activeItem {
+        margin-left: 30rpx;
+        padding-bottom: 34rpx;
+        .avtiveItem_main {
+          display: flex;
+          justify-content: space-between;
+          margin-right: 38rpx;
+          .left_main {
+            display: flex;
+            .content {
+              margin-left: 20rpx;
+              .activeTitle {
+                font-size: 28rpx;
+                font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+                font-weight: 500;
+                color: rgba(33, 33, 33, 1);
+                line-height: 40rpx;
+              }
+              .expiryData {
+                font-size: 24rpx;
+                font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+                font-weight: 400;
+                color: rgba(153, 153, 153, 1);
+                line-height: 32rpx;
+                margin-top: 8rpx;
+              }
+            }
+          }
+          .right_main {
+            margin-left: 52rpx;
+            display: flex;
+            align-items: center;
+          }
+        }
+        .bottomline {
+          margin-top: 28rpx;
+        }
+      }
+    }
+  }
+  

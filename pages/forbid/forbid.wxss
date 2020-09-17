@@ -1,0 +1,15 @@
+.container {
+  background-color: #fefefe;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .main .txt {
+  margin-top: 40rpx;
+}

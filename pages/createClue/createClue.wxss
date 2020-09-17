@@ -1,0 +1,176 @@
+.container {
+  background-color: #f6f6f6;
+  height: 100vh;
+  width: 100vw;
+}
+.container .baseinfo {
+  padding: 22rpx 30rpx;
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+  font-weight: 500;
+  color: #212121;
+  line-height: 36rpx;
+}
+.container .main {
+  background-color: #fff;
+}
+.container .face {
+  padding: 30rpx 28rpx 30rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+.container .face .f_left {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+}
+.container .face .f_right {
+  display: flex;
+  align-items: center;
+}
+.container .infoItem {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.container .infoItem .i_left {
+  display: flex;
+}
+.container .infoItem .i_left .start {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #e94631;
+  line-height: 32rpx;
+  margin-right: 10rpx;
+}
+.container .infoItem .i_left .txt {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+}
+.container .infoItem .i_right {
+  width: 200rpx;
+}
+.container .infoItem .i_right .input_wrapper .input {
+  text-align: right;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+}
+.container .infoItem .i_right .input_wrapper .input_placeholder {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+.container .infoItem .i_right .selected_wrapper {
+  display: flex;
+  width: 200rpx;
+  align-items: center;
+  justify-content: flex-end;
+}
+.container .infoItem .i_right .selected_wrapper .selectedTxt {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+  flex-basis: 180rpx;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+.container .infoItem .i_right .selected_wrapper .selectedTxt_select {
+  color: #212121;
+}
+.container .hide_item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  margin-top: 2rpx;
+  background: #f6f6f6;
+}
+.container .hide_item .h_left {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Medium, DFPKingGothicGB;
+  font-weight: 500;
+  color: #212121;
+  line-height: 36rpx;
+}
+.container .hide_item .h_righe {
+  display: flex;
+  align-items: center;
+}
+.container .hide_item .h_righe .hr_txt {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+.container .hide_item .h_righe .hr_img {
+  margin-left: 8rpx;
+}
+.container .save {
+  width: 100%;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  box-shadow: 0px -2px 8px 0px rgba(24, 29, 49, 0.05);
+}
+.container .save .save_btn {
+  width: 100%;
+  height: 80rpx;
+  background: #3173cd;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: white;
+}
+.container .defaultbg {
+  background-color: #fff;
+}
+.container .defaultbg.hide {
+  display: none;
+}
+.container .btn_wrapper {
+  background-color: #fff;
+  padding: 30rpx 10rpx 20rpx 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .btn_wrapper.hide {
+  display: none;
+}
+.container .btn_wrapper .btn_item {
+  border-radius: 4rpx;
+  border: 1px solid #212121;
+  padding: 12rpx 26rpx;
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  line-height: 32rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+}
+.container .btn_wrapper .selected_btn {
+  background: rgba(49, 115, 205, 0.05);
+  border: 1px solid #3173cd;
+  color: #3173cd;
+}
+.container .bottomline {
+  margin-left: 32rpx;
+  height: 2rpx;
+  width: 100%;
+}

@@ -1,0 +1,134 @@
+.container {
+
+  .title {
+    height: 100rpx;
+    display: flex;
+    background:rgba(255,237,235,1);
+    align-items: center;
+    padding: 0 32rpx;
+    .txt {
+      flex: 1;
+      text-align: center;
+      line-height: 100rpx;
+      font-size:29rpx;
+      font-family:DFPKingGothicGB-Regular,DFPKingGothicGB;
+      font-weight:400;
+      color:rgba(102,102,102,1);
+      .Redtxt {
+        color: #F64A33;
+      }
+    }
+  }
+  .newClues {
+    height: calc(100vh);
+    background:rgba(246,246,246,1);
+    padding-bottom: 20rpx;
+    box-sizing: border-box;
+    .clues_item {
+      padding: 30rpx 0;
+      background-color: #fff;
+      box-sizing: border-box;
+      margin: 20rpx 30rpx 0;
+      .item_top {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 30rpx;
+        margin-right: 32rpx;
+        .it_left {
+          .itl_title_wrapper {
+            display: flex;
+            align-items: center;
+            .itlt_title {
+              font-size: 28rpx;
+              font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+              font-weight: 600;
+              color: rgba(33, 33, 33, 1);
+              line-height: 36rpx;
+            }
+            .itlt_bage {
+              height: 28rpx;
+              font-size: 20rpx;
+              font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+              font-weight: 400;
+              line-height: 29rpx;
+              margin-left: 10rpx;
+              background:rgba(246,74,51,0.05);
+              color: rgba(246, 74, 51, 1);
+              border-radius:4px;
+              padding: 0 4rpx;
+            }
+            .itlt_bage_color {
+              color:rgba(45,196,64,1);
+              background:rgba(45,196,64,0.05);
+            }
+          }
+          .itl_phoone {
+            font-size: 28rpx;
+            font-family: Avenir-Heavy, Avenir;
+            font-weight: 800;
+            color: rgba(33, 33, 33, 1);
+            line-height: 36rpx;
+            margin-top: 10rpx;
+          }
+        }
+        .it_right {
+          display: flex;
+          .itr_btn {
+            width: 140rpx;
+            height: 53rpx;
+            font-size:29rpx;
+            font-family:DFPKingGothicGB-Regular,DFPKingGothicGB;
+            font-weight:400;
+            color:rgba(49,115,205,1);
+            line-height:53rpx;
+            border: 2rpx solid #3173CD;
+            text-align: center;
+            position: relative;
+            .itrb_txt {
+
+            }
+            .spot {
+              position: absolute;
+              top: -6rpx;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #fff;
+              padding: 0 4rpx;
+            }
+          }
+        }
+      }
+      .item_line {
+        margin-left: 30rpx;
+        margin-top: 24rpx;
+        margin-bottom: 22rpx;
+      }
+      .item_bottom {
+        margin: 0 30rpx;
+        display: flex;
+        justify-content: space-between;
+        .ib_left {
+          .ibl_text {
+            font-size: 24rpx;
+            font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+            line-height: 32rpx;
+          }
+        }
+        .ib_right {
+          display: flex;
+          align-items: center;
+          .ibr_text {
+            font-size: 24rpx;
+            font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+            font-weight: 400;
+            color: rgba(49, 115, 205, 1);
+            line-height: 32rpx;
+            margin-right: 10rpx;
+          }
+        }
+      }
+    }
+  }
+}

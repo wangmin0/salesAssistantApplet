@@ -1,0 +1,237 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container .search_wrapper {
+  height: 88rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container .search_wrapper .item {
+  height: 100%;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #212121;
+  position: relative;
+}
+
+.container .clues {
+  height: calc(100vh - 104rpx);
+  background-color: #f6f6f6;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.container .clues .clues_item {
+  display: flex;
+  padding: 30rpx 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 20rpx 30rpx 0;
+}
+
+.container .clues .clues_item .item_left {
+  width: 40rpx;
+  margin-top: 20rpx;
+}
+
+.container .clues .clues_item .item_left .checked {
+  box-sizing: border-box;
+}
+
+.container .clues .clues_item .item_right {
+  flex: 1;
+}
+
+.container .clues .clues_item .item_right .item_top {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30rpx;
+  margin-right: 32rpx;
+}
+
+.container .clues .clues_item .item_right .item_top .it_left .itl_title_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.container .clues .clues_item .item_right .item_top .it_left .itl_title_wrapper .itlt_title {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+  font-weight: 600;
+  color: #212121;
+  line-height: 36rpx;
+}
+
+.container .clues .clues_item .item_right .item_top .it_left .itl_phoone {
+  font-size: 28rpx;
+  font-family: Avenir-Heavy, Avenir;
+  font-weight: 800;
+  color: #212121;
+  line-height: 36rpx;
+  margin-top: 10rpx;
+}
+
+.container .clues .clues_item .item_right .item_line {
+  margin-left: 30rpx;
+  margin-top: 24rpx;
+  margin-bottom: 22rpx;
+}
+
+.container .clues .clues_item .item_right .item_bottom {
+  margin: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .clues .clues_item .item_right .item_bottom .ib_left .ibl_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+
+.container .clues .clues_item .item_right .item_bottom .ib_right {
+  display: flex;
+  align-items: center;
+}
+
+.container .clues .clues_item .item_right .item_bottom .ib_right .ibr_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #3173cd;
+  line-height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.container .clues .clues_bottom {
+  display: flex;
+  padding: 30rpx 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 20rpx 30rpx 0;
+}
+
+.container .clues .clues_bottom .item_left {
+  flex: .3;
+  margin-top: 20rpx;
+}
+
+.container .clues .clues_bottom .item_left .checked {
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+.container .clues .clues_bottom .item_left .checked .checkbox {
+  color: #3173CD;
+}
+
+.container .clues .clues_bottom .item_right {
+  flex: .7;
+}
+
+.container .clues .clues_bottom .item_right .btn {
+  display: flex;
+}
+
+.container .clues .clues_bottom .item_right .btn .left_btn {
+  padding: 0;
+  margin: 0;
+  margin: 0 20rpx;
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  font-weight: normal;
+  background: #3173CD;
+  color: #fff;
+  border: 1rpx solid #3173CD;
+  text-align: center;
+}
+
+.ml_40 {
+  margin-left: 40rpx;
+}
+
+.ml_44 {
+  margin-left: 44rpx;
+}
+
+.mark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  opacity: .3;
+  background: #000;
+}
+
+.dialog {
+  width: 600rpx;
+  height: 320rpx;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.dialog .close {
+  position: relative;
+  width: 100%;
+  height: 40rpx;
+}
+
+.dialog .close .close_iocn {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 10rpx;
+  text-align: center;
+}
+
+.dialog .info {
+  font-size: 32rpx;
+  color: #333;
+  margin: 40rpx;
+}
+
+.dialog .hint {
+  font-size: 32rpx;
+  color: #333;
+  margin: 40rpx;
+  text-align: center;
+  line-height: 150rpx;
+}
+
+.dialog .commit {
+  width: 530rpx;
+  margin: auto;
+  line-height: 80rpx;
+  background: #3173CD;
+  text-align: center;
+}
+
+.dialog .commit .btn {
+  height: 80rpx;
+  font-size: 32rpx;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  color: #fff;
+}

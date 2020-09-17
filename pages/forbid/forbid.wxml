@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="main">
+    <image mode="aspectFill" src="../../assets/images/page/logo.png" style="width: 300rpx" />
+    <view class="txt">没有权限 请找系统管理员添加权限</view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+@use "../clueFollow/clueFollow";
+#clueFollowFailure {
+  display: flex;
+  flex-direction: column;
+  .content{
+    flex: 1;
+    padding: 30rpx;
+  }
+  .mgt-30{
+    margin-top: 30rpx;
+  }
+  .normal-cell-wrap {
+    @include clueFollow.normal-cell-wrap;
+  }
+  .bottom_btn_wrapper {
+    @include clueFollow.bottom_btn_wrapper;
+  }
+  .tab-normal-textarea{
+    @include clueFollow.tab-normal-textarea;
+  }
+}

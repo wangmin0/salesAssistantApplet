@@ -1,0 +1,10 @@
+<view style="height:{{info.top+info.height+10}}px;z-index: 999;position: {{fixed?'fixed':''}};top:0;left:0;width:750rpx;" class="{{hideBgc ? '': 'bgc'}}"></view>
+<view class="navigation" style="width:{{full?'100%':info.left+'px'}};height: {{info.height}}px;top:{{info.top}}px">
+  <!-- <slot></slot> -->
+  <view class="ui-navigation">
+    <view wx:if="{{leftIcon}}" class="menu" bind:tap="back">
+      <image mode="aspectFill" src="../../assets/images/page/icon_arrow_left.png" style="width: 48rpx; height: 48rpx;" />
+    </view>
+    <view class="title" style="color: {{ color }}">{{title}}</view>
+  </view>
+</view>

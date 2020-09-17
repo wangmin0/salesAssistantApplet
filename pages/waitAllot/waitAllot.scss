@@ -1,0 +1,256 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .search_wrapper {
+    height: 88rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .item {
+      height: 100%;
+      // width: 180rpx;
+      line-height: 88rpx;
+      text-align: center;
+      font-size: 32rpx;
+      font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+      font-weight: 400;
+      color: rgba(33, 33, 33, 1);
+      position: relative;
+    }
+  }
+
+  .clues {
+    height: calc(100vh - 104rpx);
+    background-color: #f6f6f6;
+    padding-bottom: 20rpx;
+    box-sizing: border-box;
+
+    .clues_item {
+      display: flex;
+      padding: 30rpx 0;
+      background-color: #fff;
+      box-sizing: border-box;
+      margin: 20rpx 30rpx 0;
+
+      .item_left {
+        width: 40rpx;
+        margin-top: 20rpx;
+
+        .checked {
+          box-sizing: border-box;
+        }
+      }
+
+      .item_right {
+        flex: 1;
+
+        .item_top {
+          display: flex;
+          justify-content: space-between;
+          margin-left: 30rpx;
+          margin-right: 32rpx;
+
+          .it_left {
+            .itl_title_wrapper {
+              display: flex;
+              align-items: center;
+
+              .itlt_title {
+                font-size: 28rpx;
+                font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+                font-weight: 600;
+                color: rgba(33, 33, 33, 1);
+                line-height: 36rpx;
+              }
+            }
+
+            .itl_phoone {
+              font-size: 28rpx;
+              font-family: Avenir-Heavy, Avenir;
+              font-weight: 800;
+              color: rgba(33, 33, 33, 1);
+              line-height: 36rpx;
+              margin-top: 10rpx;
+            }
+          }
+        }
+
+        .item_line {
+          margin-left: 30rpx;
+          margin-top: 24rpx;
+          margin-bottom: 22rpx;
+        }
+
+        .item_bottom {
+          margin: 0 30rpx;
+          display: flex;
+          justify-content: space-between;
+
+          .ib_left {
+            .ibl_text {
+              font-size: 24rpx;
+              font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+              font-weight: 400;
+              color: rgba(153, 153, 153, 1);
+              line-height: 32rpx;
+            }
+          }
+
+          .ib_right {
+            display: flex;
+            align-items: center;
+
+            .ibr_text {
+              font-size: 24rpx;
+              font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+              font-weight: 400;
+              color: rgba(49, 115, 205, 1);
+              line-height: 32rpx;
+              margin-right: 10rpx;
+            }
+          }
+        }
+      }
+    }
+
+    .clues_bottom {
+      display: flex;
+      padding: 30rpx 0;
+      background-color: #fff;
+      box-sizing: border-box;
+      margin: 20rpx 30rpx 0;
+
+      .item_left {
+        flex: .35;
+        margin-top: 20rpx;
+
+        .checked {
+          box-sizing: border-box;
+          font-size: 28rpx;
+
+          .checkbox {
+            color: #3173CD;
+          }
+        }
+      }
+
+      .item_right {
+        flex: .65;
+
+        .btn {
+          display: flex;
+
+          .left_btn {
+            padding: 0;
+            margin: 0;
+            margin: 0 20rpx;
+            width: 220rpx;
+            font-size: 32rpx;
+            line-height: 80rpx;
+            font-weight: normal;
+            background: #3173CD;
+            color: #fff;
+            border: 1rpx solid #3173CD;
+            text-align: center;
+          }
+
+          .right_btn {
+            padding: 0;
+            margin: 0;
+            width: 220rpx;
+            font-size: 32rpx;
+            font-weight: normal;
+            background: #3173CD;
+            color: #3173CD;
+            background: #fff;
+            line-height: 80rpx;
+            border: 1rpx solid #3173CD;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ml_40 {
+  margin-left: 40rpx;
+}
+
+.ml_44 {
+  margin-left: 44rpx;
+}
+
+.mark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  opacity: .3;
+  background: #000;
+}
+
+.dialog {
+  width: 600rpx;
+  height: 320rpx;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  .close {
+    position: relative;
+    width: 100%;
+    height: 40rpx;
+
+    .close_iocn {
+      width: 40rpx;
+      height: 40rpx;
+      position: absolute;
+      top: 30rpx;
+      right: 10rpx;
+      text-align: center;
+    }
+  }
+
+
+  .info {
+    font-size: 32rpx;
+    color: #333;
+    margin: 40rpx;
+  }
+  .hint {
+    font-size: 32rpx;
+    color: #333;
+    margin: 40rpx;
+    text-align: center;
+    line-height: 150rpx;
+  }
+
+  .commit {
+    width: 530rpx;
+    margin: auto;
+    line-height: 80rpx;
+    background: #3173CD;
+    text-align: center;
+
+    .btn {
+      height: 80rpx;
+      font-size: 32rpx;
+      padding: 0;
+      margin: 0;
+      font-weight: normal;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+<view id="me">
+  <van-tabs active="{{ active }}" custom-class="customTab" nav-class="tabNav" line-width="20" tab-active-class="acTab" line-height="4" bind:change="onChange">
+    <van-tab title="我的名片">内容 1</van-tab>
+    <van-tab title="邀请协助">
+      <view class="tab2">
+        <view wx:if="{{!showLs2}}" class="xz-ls">
+          <view class="infoItem">
+            <view class="i_left">
+              <view class="txt">向TA邀请协助</view>
+              <image mode="aspectFill" src="../../assets/images/page/icon_question.png"
+                     style="width: 30rpx; height: 30rpx; margin-left: 10rpx"/>
+            </view>
+            <view class="i_right">
+              <view class="selected_wrapper">
+                <view class="selectedTxt ">
+                  {{'请选择'}}
+                </view>
+                <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                       style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+              </view>
+            </view>
+          </view>
+          <view class="bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                   style="width: 100%; height: 8rpx;"/>
+          </view>
+          <view class="infoItem" bind:tap="todoHandle">
+            <view class="i_left">
+              <view class="txt">TA邀请您协助</view>
+            </view>
+            <view class="i_right">
+              <view class="selected_wrapper">
+                <view class="selectedTxt denger">
+                  {{'2个邀请待处理'}}
+                </view>
+                <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png"
+                       style="width: 14rpx; height: 26rpx; margin-left: 8rpx"/>
+              </view>
+            </view>
+          </view>
+          <view class="bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                   style="width: 100%; height: 8rpx;"/>
+          </view>
+        </view>
+        <view wx:else class="xz-ls2" >
+          <view class="infoItem">
+            <view class="i_left">
+              <view class="txt">
+                <view class="tit"><text class="name">张三丰</text>邀请您协助TA跟进客户</view>
+                <view class="sub">邀请时间：2020-07-02</view>
+              </view>
+            </view>
+            <view class="i_right">
+              <view class="selected_wrapper">
+                <view class="btn-wrap">
+                  <view class="btn btn-reject">驳回</view>
+                  <view class="btn btn-resolve">同意</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                   style="width: 100%; height: 8rpx;"/>
+          </view>
+          <view class="infoItem">
+            <view class="i_left">
+              <view class="txt">
+                <view class="tit"><text class="name">张三丰</text>邀请您协助TA跟进客户</view>
+                <view class="sub">邀请时间：2020-07-02</view>
+              </view>
+            </view>
+            <view class="i_right">
+              <view class="selected_wrapper">
+                <view class="btn-wrap">
+                  <view class="btn btn-has-agree">已同意</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                   style="width: 100%; height: 8rpx;"/>
+          </view>
+          <view class="infoItem">
+            <view class="i_left">
+              <view class="txt">
+                <view class="tit"><text class="name">张三丰</text>邀请您协助TA跟进客户</view>
+                <view class="sub">邀请时间：2020-07-02</view>
+              </view>
+            </view>
+            <view class="i_right">
+              <view class="selected_wrapper">
+                <view class="btn-wrap">
+                  <view class="btn btn-has-reject">已驳回</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png"
+                   style="width: 100%; height: 8rpx;"/>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

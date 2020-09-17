@@ -1,0 +1,125 @@
+<view class="container" id="clueDetail">
+  <view class="baseinfo">
+    <view class="user">
+      <view class="u_left">
+        <view class="ul_top">
+          <view class="ult_name">{{ dataMain.custName }}</view>
+          <view class="ult_bage">{{ dataMain.leadsLevelName }}</view>
+        </view>
+        <view class="ul_bottom">
+          <view class="ulb_phone">{{ dataMain.mobile }}</view>
+          <view class="ulb_bage">@{{ dataMain.cityName }}</view>
+        </view>
+      </view>
+      <view class="u_right">
+        <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx" />
+      </view>
+    </view>
+    <view class="info_item mt_30">客户来源：{{ dataMain.sourceChannelName }}</view>
+    <view class="info_item mt_10">建档时间：{{dataMain.leadsCreateTime}}</view>
+    <view class="info_item mt_10">下次计划时间：{{dataMain.nextFollowTime}}</view>
+<!--    <view class="info_item mt_10">备注信息：{{dataMain.comment}}</view>-->
+    <view class="btn_wrapper mt_30">
+      <view class="btn_item selected_btn" wx:for="{{dataMain.tLeadsLabels}}" wx:key="index">{{item.labelName}}</view>
+      <!-- <view class="btn_item">+新标签</view> -->
+    </view>
+  </view>
+  <view class="tab_wrapper">
+    <view class="tab_left" bind:tap="setActiveTab" data-id="1">
+      <image class="tab_bg" mode="aspectFill" wx:if="{{currentAcTab==1}}"
+             src="../../assets/images/page/icon_selected_tabbg.png"/>
+      <image class="tab_bg" mode="aspectFill" wx:else
+             src="../../assets/images/page/icon_tabbg.png"/>
+
+      <view class="tab_main {{currentAcTab==1 ? 'tab_select_txt' : 'tab_txt'}}">跟进记录</view>
+    </view>
+    <view class="tab_right" bind:tap="setActiveTab" data-id="2">
+      <image class="tab_bg" wx:if="{{currentAcTab==2}}" mode="aspectFill"
+             src="../../assets/images/page/icon_selected_tabbg.png"/>
+      <image class="tab_bg" wx:else mode="aspectFill"
+             src="../../assets/images/page/icon_tabbg.png"/>
+      <view class="tab_main {{currentAcTab==2 ? 'tab_select_txt' : 'tab_txt'}}">参与活动</view>
+    </view>
+  </view>
+  <scroll-view class="tab_content"
+               scroll-y
+               enhanced
+               refresher-enabled="{{ currentAcTab==1?false:true }}"
+               refresher-threshold="{{80}}"
+               bindrefresherrefresh="refresh"
+               refresher-triggered="{{ refreshFlag }}"
+               show-scrollbar="{{false}}"
+               paging-enabled="{{true}}"
+               fast-deceleration="{{true}}"
+               bindscrolltolower="loadMore">
+    <view class="follow_wrapper" wx:if="{{currentAcTab==1}}">
+      <view wx:for="{{followHistoryList}}" wx:key="index" class="step_item">
+        <view class="si_top">
+          <view class="sit_left">
+            <view class="sitl_bage">{{item.newLevelName}}</view>
+            <view class="sltl_stage">{{item.followTypeName}}</view>
+            <view class="sitl_bage red" wx:if="{{item.isCooperate==1}}">协助</view>
+          </view>
+          <view class="sit_right">
+            <view class="sitr_name">{{item.salesConsultant}}</view>
+            <view class="sitr_date">{{item.actualTime}}</view>
+          </view>
+        </view>
+        <view class="si_middle">
+          <view class="sim_statusbtn" wx:if="{{item.contactWayName}}">{{item.contactWayName}}</view>
+          <view class="sim_statusbtn" wx:if="{{item.arrivalWayName}}">{{item.arrivalWayName}}</view>
+          <view class="sim_statusbtn simsb_primary" wx:for="{{item.followDo}}" wx:key="index">{{item}}</view>
+        </view>
+        <view wx:if="{{item.followType == 102004}}" class="si_bottom">
+          <block wx:for="{{item.tTemporaryDefeat.reasonRemark}}" wx:key="index" wx:for-item="it">
+            <text>{{ it.reasonName }}:{{ it.reasonDescription }}</text>
+          </block>
+        </view>
+        <view wx:else class="si_bottom">
+          #{{item.activityName}}# {{item.resultFeedback}}
+        </view>
+        <view class="rotate_spot"></view>
+        <view wx:if="{{index != followCecord.length - 1}}" class="botted_line"></view>
+      </view>
+    </view>
+    <view wx:else class="active_wrapper">
+         <view class="a_item" bind:tap="gotoDetail" data-item="{{ item }}"  wx:for="{{activityList}}" wx:key="index">
+          <view class="ai_main">
+            <view class="aim_left">
+              <view class="aiml_top">
+                <view class="aimlt_activen_name">{{item.activityName}}</view>
+                <view class="aimlt_bage ml_10" wx:for="{{item.activityLabelName}}" wx:key="index">{{item}}</view>
+              </view>
+              <view class="aiml_bottom">
+                <view class="aimlb_txt">活动方式：{{item.propertiesName}}</view>
+                <view class="aimlb_txt">活动时间：{{ item.beginTime }}至{{ item.endTime }}</view>
+              </view>
+            </view>
+            <view class="aim_right">
+              <!--            <view class="aimr_txt {{index === 0 ? 'aimr_default' : index === 1 ? 'aimr_select_success' : index === 2 ? 'aimr_select_warning' : index === 3 ? 'aimr_select_danger' : ''}}">-->
+              <!--              {{item._name}}-->
+              <!--            </view>-->
+              <view class="aimr_txt {{item.signInStatus==1?'aimr_select_warning':'aimr_select_danger'}}">
+                {{item._name}}
+              </view>
+              <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 10rpx" />
+            </view>
+          </view>
+          <view class="ai_bottomline">
+            <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+          </view>
+        </view>
+    </view>
+  </scroll-view>
+  <view class="bottom_btn_wrapper">
+    <view class="save_btn" bind:tap="gotoClueFollow">写跟进</view>
+    <view class="bbw_phone" bind:tap="phoneCall" data-phone="{{ dataMain.mobile }}">
+      <image mode="aspectFill" src="../../assets/images/page/icon_phone.png" style="width: 48rpx; height: 48rpx" />
+      <view class="p_txt">电话</view>
+    </view>
+    <view class="bbw_chat">
+      <image mode="aspectFill" src="../../assets/images/page/icon_chat.png" style="width: 48rpx; height: 48rpx" />
+      <view class="p_chat">企微</view>
+    </view>
+  </view>
+</view>

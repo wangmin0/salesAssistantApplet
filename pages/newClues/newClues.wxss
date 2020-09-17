@@ -1,0 +1,142 @@
+.container .title {
+  height: 100rpx;
+  display: flex;
+  background: #ffedeb;
+  align-items: center;
+  padding: 0 32rpx;
+}
+
+.container .title .txt {
+  flex: 1;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 29rpx;
+  font-family: DFPKingGothicGB-Regular,DFPKingGothicGB;
+  font-weight: 400;
+  color: #666666;
+}
+
+.container .title .txt .Redtxt {
+  color: #F64A33;
+}
+
+.container .newClues {
+  height: calc(100vh);
+  background: #f6f6f6;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.container .newClues .clues_item {
+  padding: 30rpx 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 20rpx 30rpx 0;
+}
+
+.container .newClues .clues_item .item_top {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30rpx;
+  margin-right: 32rpx;
+}
+
+.container .newClues .clues_item .item_top .it_left .itl_title_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.container .newClues .clues_item .item_top .it_left .itl_title_wrapper .itlt_title {
+  font-size: 28rpx;
+  font-family: DFPKingGothicGB-Semibold, DFPKingGothicGB;
+  font-weight: 600;
+  color: #212121;
+  line-height: 36rpx;
+}
+
+.container .newClues .clues_item .item_top .it_left .itl_title_wrapper .itlt_bage {
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  line-height: 29rpx;
+  margin-left: 10rpx;
+  background: rgba(246, 74, 51, 0.05);
+  color: #f64a33;
+  border-radius: 4px;
+  padding: 0 4rpx;
+}
+
+.container .newClues .clues_item .item_top .it_left .itl_title_wrapper .itlt_bage_color {
+  color: #2dc440;
+  background: rgba(45, 196, 64, 0.05);
+}
+
+.container .newClues .clues_item .item_top .it_left .itl_phoone {
+  font-size: 28rpx;
+  font-family: Avenir-Heavy, Avenir;
+  font-weight: 800;
+  color: #212121;
+  line-height: 36rpx;
+  margin-top: 10rpx;
+}
+
+.container .newClues .clues_item .item_top .it_right {
+  display: flex;
+}
+
+.container .newClues .clues_item .item_top .it_right .itr_btn {
+  width: 140rpx;
+  height: 53rpx;
+  font-size: 29rpx;
+  font-family: DFPKingGothicGB-Regular,DFPKingGothicGB;
+  font-weight: 400;
+  color: #3173cd;
+  line-height: 53rpx;
+  border: 2rpx solid #3173CD;
+  text-align: center;
+  position: relative;
+}
+
+.container .newClues .clues_item .item_top .it_right .itr_btn .spot {
+  position: absolute;
+  top: -6rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 0 4rpx;
+}
+
+.container .newClues .clues_item .item_line {
+  margin-left: 30rpx;
+  margin-top: 24rpx;
+  margin-bottom: 22rpx;
+}
+
+.container .newClues .clues_item .item_bottom {
+  margin: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .newClues .clues_item .item_bottom .ib_left .ibl_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #999999;
+  line-height: 32rpx;
+}
+
+.container .newClues .clues_item .item_bottom .ib_right {
+  display: flex;
+  align-items: center;
+}
+
+.container .newClues .clues_item .item_bottom .ib_right .ibr_text {
+  font-size: 24rpx;
+  font-family: DFPKingGothicGB-Regular, DFPKingGothicGB;
+  font-weight: 400;
+  color: #3173cd;
+  line-height: 32rpx;
+  margin-right: 10rpx;
+}

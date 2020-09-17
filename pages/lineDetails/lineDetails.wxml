@@ -1,0 +1,123 @@
+<view class="container" id="clueDetail">
+  <view class="baseinfo">
+    <view class="user">
+      <view class="u_left">
+        <view class="ul_top">
+          <view class="ult_name">{{custName}}</view>
+          <view class="ult_bage">{{leadsLevelName}}</view>
+        </view>
+        <view class="ul_bottom">
+          <view class="ulb_phone">{{mobile}}</view>
+          <view class="ulb_bage">{{cityName}}</view>
+        </view>
+      </view>
+      <view class="u_right">
+        <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx" />
+      </view>
+    </view>
+    <view class="info_item mt_30">线索归属：{{salesConsultant}}</view>
+    <view class="info_item mt_30">客户来源：{{sourceChannelName}}</view>
+    <view class="info_item mt_10">建档时间：{{leadsCreateTime}}</view>
+    <view class="info_item mt_10">备注信息：{{comment}}</view>
+    <view class="btn_wrapper mt_30">
+      <view class="btn_item selected_btn" wx:for="{{dataMain.tLeadsLabels}}" wx:key="index">
+        {{item.labelName}}
+      </view>
+      <!-- <view class="btn_item">+新标签</view> -->
+      <!-- <view class="btn_item selected_btn">贷款购车</view>
+      <view class="btn_item selected_btn">外地上牌</view>
+      <view class="btn_item selected_btn">有充电桩</view>
+      <view class="btn_item selected_btn">10w+24期</view> -->
+    </view>
+  </view>
+  <view class="tab_wrapper">
+    <view class="tab_left" data-type="1" bindtap="currentTab">
+      <image class="tab_bg" mode="aspectFill" wx:if="{{currentTab=='1'}}" src="../../assets/images/page/icon_selected_tabbg.png" />
+      <image class="tab_bg" mode="aspectFill" wx:else src="../../assets/images/page/icon_tabbg.png" />
+      <view class="tab_main {{currentTab=='1' ? 'tab_txt' : 'tab_select_txt'}}">跟进记录</view>
+    </view>
+    <view class="tab_right" data-type="2" bindtap="currentTab">
+      <image class="tab_bg" wx:if="{{currentTab=='2'}}" mode="aspectFill" src="../../assets/images/page/icon_selected_tabbg.png" />
+      <image class="tab_bg" wx:else mode="aspectFill" src="../../assets/images/page/icon_tabbg.png" />
+      <view class="tab_main {{currentTab=='2' ? 'tab_txt' : 'tab_select_txt'}}">参与活动</view>
+    </view>
+  </view>
+  <scroll-view class="tab_content" scroll-y enhanced refresher-enabled="{{ currentAcTab==1?false:true }}" refresher-threshold="{{80}}" bindrefresherrefresh="refresh" refresher-triggered="{{ refreshFlag }}" show-scrollbar="{{false}}" paging-enabled="{{true}}" fast-deceleration="{{true}}" bindscrolltolower="loadMore">
+    <view class="follow_wrapper" wx:if="{{currentTab=='1'}}">
+      <view class="a_item" wx:for="{{tFollowResultList}}" wx:key="{{index}}">
+        <view class="rotate_spot"></view>
+        <view wx:if="{{index != tFollowResultList.length-1}}" class="botted_line"></view>
+        <view class="ai_main">
+          <view class="aim_bar">
+            <!-- <span class="dian"></span> -->
+            <!-- <image mode="aspectFill" src="../../assets/images/page/left_line.png" style="width: 4rpx; height: 260rpx; margin-right: 20rpx;" /> -->
+          </view>
+          <view class="aim_left">
+            <view class="aiml_top">
+              <view class="aimr_txt">{{tFollowResultList[index].newLevelName}}</view>
+              <view class="assist" wx:if="{{tFollowResultList[index].isCooperate === 1}}">
+                {{"协助"}}
+              </view>
+              <view class="aimlt_activen_name">{{tFollowResultList[index].followTypeName}}</view>
+              <!-- <view class="aimr_txt {{index == 0 ? 'aimr_default' : index == 1 ? 'aimr_select_success' : index === 2 ? 'aimr_select_warning' : index === 3 ? 'aimr_select_danger' : ''}}">{{items[index].value}}</view> -->
+              <!-- <view class="aimlt_bage ml_10">{{items[index].value}}</view> -->
+              <view class="counselor">{{tFollowResultList[index].salesConsultant}}</view>
+              <view class="aimr_time">{{tFollowResultList[index].actualTime}}</view>
+            </view>
+            <view class="aiml_bottom">
+              <view class="aimlb_txt active1">
+                {{tFollowResultList[index].followType =='102001' ? tFollowResultList[index].arrivalWayName : tFollowResultList[index].followType =='102002' ? tFollowResultList[index].arrivalWayName : tFollowResultList[index].followType =='102004' ? tFollowResultList[index].tTemporaryDefeat.defeatStatusName :''}}
+              </view>
+              <view class="aimlb_txt active2">
+                {{tFollowResultList[index].followType =='102004' ? tFollowResultList[index].tTemporaryDefeat.reasonRemark[index].reasonDescription : tFollowResultList[index].followDo}}
+              </view>
+              <!-- <view class="aimlb_txt active2">参与活动</view> -->
+            </view>
+            <view class="aiml_bottom">
+              <view class="activifyDetails">
+                <view class="activify">
+                  <span class="activifyInfo">{{tFollowResultList[index].activityName}}</span>
+                  {{tFollowResultList[index].resultFeedback}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="active_wrapper">
+      <view class="a_item" wx:for="{{activityList}}" wx:key="index">
+        <view class="ai_main">
+          <view class="aim_left">
+            <view class="aiml_top">
+              <view class="aimlt_activen_name">{{item.activityName}}</view>
+              <view class="aimlt_bage ml_10" wx:for="{{item.activityLabelName}}" wx:key="index">
+                {{item}}
+              </view>
+            </view>
+            <view class="aiml_bottom">
+              <view class="aimlb_txt">活动方式：{{item.propertiesName}}</view>
+              <view class="aimlb_txt">活动时间：{{ item.beginTime }}至{{ item.endTime }}</view>
+            </view>
+          </view>
+          <view class="aim_right">
+            <!-- <view class="aimr_txt {{index === 0 ? 'aimr_default' : index === 1 ? 'aimr_select_success' : index === 2 ? 'aimr_select_warning' : index === 3 ? 'aimr_select_danger' : ''}}"> -->
+            <!-- {{item._name}} -->
+            <!-- </view> -->
+            <view class="aimr_txt {{item.signInStatus==1?'aimr_select_warning':'aimr_select_danger'}}">
+              {{item._name}}
+            </view>
+            <image mode="aspectFill" src="../../assets/images/page/icon_arrow_right.png" style="width: 14rpx; height: 26rpx; margin-left: 10rpx" />
+          </view>
+        </view>
+        <view class="ai_bottomline">
+          <image mode="aspectFill" src="../../assets/images/page/big_bottomline.png" style="width: 100%; height: 8rpx;" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="bottom_btn_wrapper">
+    <view class="call">电话</view>
+    <view class="micro">微企</view>
+  </view>
+</view>
